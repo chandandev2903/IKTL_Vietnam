@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-  <head>
+<html lang="en">
+ <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Ikontel</title>
@@ -65,11 +65,433 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
+    <style>
+        /* Global Reset */
+        .reset-all * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <body class="service-details-2">
-    <!--======== Inner Header start ========-->
-    <div class="full-width-header rs-header-layout-3">
+
+
+        .container1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+
+
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideInUp 1s ease forwards 0.5s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideInUp 1s ease forwards 0.7s;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: slideInUp 1s ease forwards 0.9s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Solutions Section */
+        .solutions {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .solution-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .solution-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .solution-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+        }
+
+        .comparison-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .comparison-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .comparison-side {
+            padding: 2rem;
+        }
+
+        .comparison-side:first-child {
+            border-right: 1px solid #eee;
+            background: #f8f9fa;
+        }
+
+        .comparison-side h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .comparison-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+
+        /* Interactive Toggle */
+        .toggle-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .toggle-container1 {
+            display: inline-flex;
+            background: #f0f0f0;
+            border-radius: 50px;
+            padding: 5px;
+            margin-bottom: 2rem;
+        }
+
+        .toggle-option {
+            padding: 10px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .toggle-option.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .toggle-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .toggle-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #4ecdc4;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .comparison-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-side:first-child {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+  </head>
+<body>
+
+     <!--======== Inner Header start ========-->
+     <div class="full-width-header rs-header-layout-3">
       <!--Header Start-->
       <header id="rs-header" class="rs-header">
         <div class="rs-header-topber">
@@ -143,7 +565,7 @@
                             >Speech Recognition Services</a>
                         </li>
                         <li>
-                          <a href="#"
+                          <a href="sms-services.html"
                             >SMS Services</a>
                         </li>
                       </ul>
@@ -344,31 +766,20 @@
     </div>
     <!--======== Offcanvas Menu Ends ========-->
 
-    <!--======== Preloader area start ========-->
-    <div id="pre-load">
-      <div id="loader" class="loader">
-        <div class="loader-container">
-          <div class="loader-icon">
-            <img src="assets/images/favicon.png" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--======== Preloader area Ends ========-->
-
-    <!--======== Service Details Page Banner 2 Start ========-->
-    
+  
+    <!--======== Contact Page Banner Start ========-->
     <section class="rs-page-banner">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="rs-page-banner__content">
-              <h1 class="title">Voice Bot Solutions in Vietnam </h1>
+              <h1 class="title">Transform Customer Experience in Vietnam’s Banking Sector</h1>
               <ul>
-                <li><i class="ri-home-wifi-line"></i> <a href="index.html">Home</a></li>
-                <li><i class="ri-arrow-right-fill"></i> <a href="#">Service</a></li>
+                <li><i class="ri-home-wifi-line"></i> <a href="#">Home</a></li>
+                 <li><i class="ri-arrow-right-fill"></i> <a href="#">Service</a></li>
                 <li>
-                  <i class="ri-arrow-right-fill"></i> Voice Bot Solution
+                  <i class="ri-arrow-right-fill"></i> SMS Services 
+
                 </li>
               </ul>
             </div>
@@ -376,47 +787,52 @@
         </div>
       </div>
     </section>
-    <!--======== Service Details Page Banner 2 Ends ========-->
+    <!--======== Contact Page Banner Ends ========-->
 
-    <!--======== Service Details 2 Start ========-->
-    <section class="rs-service-details-about pt-120 pb-145">
+    <section class="rs-service-details-about pt-120 pb-145 loaded">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="rs-section-title black">
               <div class="top-sub-heading">
-                <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="" />
-                <span> Voice Bot Solutions in Vietnam</span>
+                <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="">
+                <span> Transform Customer Experience in Vietnam’s Banking Sector</span>
               </div>
-              <h2 class="title split-in-fade">
-                Smarter Customer Conversations with AI-Powered Voice Bots
-              </h2>
-              <p class="mb-20">
-                In Vietnam, regulated and high-volume industries— from <strong>banking/financial services to e-commerce, logistics, healthcare, utilities, and telecom</strong> —need fast, consistent, and compliant customer interactions. Human-only teams struggle with spikes in demand, routine FAQs, and time-sensitive reminders.
+              <h2 class="title split-in-fade" style="perspective: 400px;">
+  Automate Smarter Customer Interactions with Voicebot &amp; Chatbot Solutions
+</h2>
+
+               <p class="mb-20">
+                Vietnam’s banking sector is evolving fast, but many banks still rely on outdated manual
+processes to handle customer interactions. <br> <br>
+With rising call volumes, strict regulatory compliance (SBV and MIC), and increasing
+operational costs, banks struggle to meet customer expectations for fast, consistent, and
+reliable service. <br><br>
+While many have adopted chatbot solutions in Vietnam for simple inquiries, they fall short
+when customers need sensitive, time-critical interactions—like debt collection calls or KYC
+document follow-ups. <br><br>
+That’s why progressive Vietnamese banks are embracing Voicebot Solutions in Vietnam to
+elevate customer engagement. <br><br>
+By automating both voice calls and text-based interactions, Ikontel’s AI-driven solution helps
+banks cut costs, ensure compliance, improve customer experience, and focus their human
+teams on high-value work.
               </p>
-              <p>
-                <strong>Ikontel’s AI Voice Bots</strong> automate inbound and outbound calls in <strong>Vietnamese and English</strong> , reducing wait times and operational costs while keeping communications professional and compliant with <strong>SBV</strong> (for financial use cases) and <strong>MIC</strong> (telecom) guidelines.
-<strong>Specialty</strong>: Proven call flows for <strong>debt recovery & collections</strong> — without limiting you to that use case.
-              </p>
+
               <a href="contact.html" class="main-btn mt-40">
-                Contact Us <i class="ri-arrow-right-fill"></i
-              ></a>
+                Contact Us <i class="ri-arrow-right-fill"></i></a>
             </div>
           </div>
           <div class="col-lg-6">
             <div class="rs-thumb">
-              <img src="assets/images/faq/faq-left-img.png" alt="" />
+              <img src="assets/images/faq/faq-left-img.png" alt="">
               <div class="rs-shape">
-                <img src="assets/images/faq/couple-ball-layer.svg" alt="" />
+                <img src="assets/images/faq/couple-ball-layer.svg" alt="">
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!--======== Service Details 2 Ends ========-->
-
-  
 
     <div class="container">
         <div class="row">
@@ -425,32 +841,34 @@
               <div class="rs-project-content">
                 <h2 class="title">What is a Voice Bot?</h2>
                 <p>
-                  An AI-driven system that makes or answers calls and understands <br> natural language to complete tasks like reminders, confirmations, <br> escalations, and data capture.
+                  A Voicebot is an advanced AI system that makes or answers calls, understands natural
+language, and performs key tasks such as payment reminders, document collection,
+confirmation calls, and data capture—all fully compliant with SBV and MIC regulations.
                 </p>
                 <div class="rs-list-box">
                   <strong>Where It’s Used</strong>
                   <ul>
                     <li>
                       <i class="ri-share-forward-fill"></i> 
-                      <strong>Debt Collection & Recovery (specialty)</strong>: Personalized past-due reminders, promise-to-pay capture, agent transfer.
+                      <strong>Debt Collection &amp; Recovery:</strong>: Automated past-due reminders, promise-to-pay capture, agent transfers.
                     </li>
                     <li>
                       <i class="ri-share-forward-fill"></i> 
-                      <strong>Customer Service :</strong> Balance/benefit queries, order status, delivery updates, policy information.
+                      <strong>Customer Service: :</strong> Balance inquiries, order status, policy information, delivery updates.
                     </li>
                     <li>
                       <i class="ri-share-forward-fill"></i> 
-                      <strong>Onboarding & KYC Reminders :</strong> Document follow-ups, activation nudges.
+                      <strong>KYC &amp; On boarding Reminders :</strong> Document follow-ups, activation nudges.
                     </li>
                     <li>
                       <i class="ri-share-forward-fill"></i> 
-                      <strong>Renewals & Retention :</strong> Policy renewals, subscription reminders, usage alerts.
+                      <strong>• Renewals &amp; Retention:</strong>Subscription or policy renewal reminders, usage alerts.
                     </li>
                   </ul>
                   <ul>
                     <li>
                       <i class="ri-share-forward-fill"></i> 
-                      <strong>Ops & CX Notifications :</strong> Service outages/restoration updates, appointment reminders, satisfaction callbacks.
+                      <strong>Operations &amp; CX Notifications :</strong> Service outages, appointment reminders, satisfaction callbacks.
                     </li>
     
                   </ul>
@@ -464,113 +882,65 @@
           </div>
         </div>
     </div>
+   
 
-      <!--======== Service Details Features Start ========-->
-    <section class="rs-service-details-features pb-120 mt-5">
-      <div class="container">
-        <h2 class="text-center mb-5">Why Vietnam Enterprises Choose Voice Automation</h2>
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="rs-service-details-features__item">
-              <div class="icon">
-                <img src="assets/images/service/repair-expesrt.png" alt="" />
-              </div>
-              
-              <p>Handle <strong>high volumes</strong> without adding headcount.</p>
+    <section class="stats">
+        <div class="container1">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-label">Cost Reduction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Availability</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">SBV</div>
+                    <div class="stat-label">Compliant</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Customer Satisfaction</div>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="rs-service-details-features__item">
-              <div class="icon">
-                <img src="assets/images/service/bar-charat.png" alt="" />
-              </div>
-              <p>Lower agent <strong>fatigue & cost</strong> by automating repeat calls.</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="rs-service-details-features__item">
-              <div class="icon">
-                <img src="assets/images/service/ideaa.png" alt="" />
-              </div>
-              <p>Maintain <strong>SBV/MIC-aligned</strong> call flows and recordings.</p>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
-    <!--======== Service Details Features Ends ========-->
 
-    <section class="rs-service-details pb-120 loaded ">
+    <section class="rs-service-details pb-120 loaded">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="rs-service-details__content">
 
               <div class="rs-content">
-                <h3 class="title mt-30">Key Features</h3>
-                <div class="rs-service-list-box">
-                  <div class="rs-thumb">
-                    <img src="assets/images/service/service-detail-small-img.jpg" alt="">
-                  </div>
-                  <div class="rs-list">
-                    <ul>
-                      <li>
-                        <i class="ri-share-forward-fill"></i>
-                        <strong>Vietnamese & English</strong> support; custom phrasing per industry.
-                      </li>
-                      <li>
-                        <i class="ri-share-forward-fill"></i> 
-                        <strong>Compliance-ready scripts</strong> and call recording where applicable.
-                      </li>
-                      <li>
-                        <i class="ri-share-forward-fill"></i>
-                        <strong>CRM/Collections/Order-Mgmt integration</strong> for real-time updates
-                      </li>
-                      <li>
-                        <i class="ri-share-forward-fill"></i> 
-                        <strong>Scalable outbound campaigns;</strong> smart retry & time-of-day rules.
-                      </li>
-                      <li>
-                        <i class="ri-share-forward-fill"></i> 
-                        <strong>Audit-friendly logs</strong> & encryption.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <h3 class="title pt-40 pb-15">Benefits</h3>
+                <h3 class="title pt-40 pb-15 mb-5">Why Vietnamese Banks Choose Voice Automation</h3>
                 <div class="row">
-                  <div class="col-lg-6 mb-3">
+                  <div class="col-lg-4 mb-3">
                     <div class="rs-service-benefit">
                       <h4 class="title">01</h4>
                       <p>
-                        Higher completion rates on reminders, renewals, and recoveries.
+                      Handle high volumes of calls and messages without adding headcount.
                       </p>
                     </div>
                   </div>
-                  <div class="col-lg-6 mb-3">
+                  <div class="col-lg-4 mb-3">
                     <div class="rs-service-benefit">
                       <h4 class="title">02</h4>
                       <p>
-                        Lower costs vs. manual campaigns.
+                       Reduce agent fatigue and operational costs by automating routine tasks.
                       </p>
                     </div>
                   </div>
-                  <div class="col-lg-6 mb-3">
+                  <div class="col-lg-4 mb-3">
                     <div class="rs-service-benefit">
                       <h4 class="title">03</h4>
                       <p>
-                        Better CX with polite, consistent messaging.
+                      Fully SBV and MIC compliant call flows and audit-ready recordings.
                       </p>
                     </div>
                   </div>
-                  <div class="col-lg-6 mb-3">
-                    <div class="rs-service-benefit">
-                      <h4 class="title">04</h4>
-                      <p>
-                        Proven recovery playbooks, adaptable to non-collections use cases.
-                      </p>
-                    </div>
-                  </div>
+
                 </div>
 
               </div>
@@ -580,226 +950,298 @@
       </div>
     </section>
 
-    <div class="rs-pricing-contact pt-90 pb-90">
+    <section class="solutions" id="solutions">
+        <div class="container1">
+            <h2 class="section-title fade-in">Difference Between Voicebot and Chatbot</h2>
+            <p><center>Both Voicebots and Chatbots automate customer interactions, but they serve different
+roles. <br>
+Voicebots specialize in real-time, sensitive interactions where tone and compliance are
+critical—such as debt collection and KYC follow-ups.
+Chatbots efficiently handle text-based tasks like FAQs or balance inquiries but are not built
+for complex, time-sensitive calls.</center></p>
+<h2 class="section-title fade-in mt-5">Key Differences:</h2>
+            <div class="solutions-grid">
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">🤖</div>
+                    <h3>Interaction Type</h3>
+                    <p>Voicebots operate over phone calls; Chatbots work through text
+(websites, apps, WhatsApp).</p>
+                </div>
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">💬</div>
+                    <h3>Complexity</h3>
+                    <p>Voicebots handle sensitive conversations requiring compliance; Chatbots
+address routine text queries.</p>
+                </div>
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">📞</div>
+                    <h3>Compliance</h3>
+                    <p>Voicebots include call recording and audit-ready scripts by default.</p>
+                </div>
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">📞</div>
+                    <h3>Customer Preference</h3>
+                    <p>Voicebots offer human-like interactions for important tasks;
+Chatbots serve quick text responses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container1">
+            <h2 class="section-title fade-in">Ikontel’s Voicebot Solution Features in Vietnam
+</h2>
+<p>Our Voicebot Solution in Vietnam is designed to deliver scalable, reliable, and compliant automation for banks. <br>
+It not only automates conversations but ensures they sound natural, follow industry best practices, and meet strict compliance requirements.</p>
+            <div class="features-grid">
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🇻🇳</div>
+                    <p>Vietnamese & English support; custom phrasing per industry.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🔗</div>
+                    <p>Compliance-ready scripts and call recording where applicable.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">⚡</div>
+                    <p>CRM/Collections/Order-Mgmt integration for real-time updates.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🛡️</div>
+                    <p>Scalable outbound campaigns; smart retry & time-of-day rules.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">📊</div>
+                    <p>Audit-friendly logs & encryption.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison" id="comparison">
+        <div class="container1">
+            <h2 class="section-title fade-in">Key Features of Ikontel Voicebot and Chatbot Solutions</h2>
+            <p>Our solutions combine the best of both worlds, providing a flexible, scalable, and fully compliant automation platform tailored for the Vietnam financial sector. <br>
+Whether it’s automating debt collection, managing KYC follow-ups, or answering customer
+questions, our solution adapts to your needs while reducing costs and improving customer
+satisfaction.</p>
+            
+            <div class="toggle-section">
+                <div class="toggle-container1">
+                    <button class="toggle-option active" onclick="showComparison('features')">Key Features</button>
+                    <button class="toggle-option" onclick="showComparison('usecases')">Why Choose Us</button>
+                </div>
+                
+                <div class="toggle-content active" id="features-content">
+                    <div class="comparison-table fade-in">
+                        <div class="comparison-header">
+                            <h3>Key Features Include</h3>
+                        </div>
+                        <div class="comparison-content">
+                            <div class="comparison-side">
+                                <h3>🎙️ Features</h3>
+                                <ul class="comparison-list">
+                                    <li>Vietnamese &amp; English support with industry-specific phrasing.</li>
+                                    <li>Seamless integration with CRM, Collections, and Order Management systems.</li>
+                                    <li>Smart retry logic and time-of-day rules to maximize reach.</li>
+                                    <li>Audit-friendly logs and secure encryption for compliance.</li>
+                                    <li>Proven playbooks for collections and other use cases.</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-side">
+                                <h3>💬 Benefits</h3>
+                                <p>
+                                  
+                                </p>
+                                <ul class="comparison-list">
+                                    <li>Higher completion rates for reminders, renewals, and recoveries.</li>
+                                    <li>Lower costs compared to manual campaigns.</li>
+                                    <li>Consistent, polite, and professional customer messaging.</li>
+                                    <li>Proven recovery playbooks adaptable to various use cases.</li>
+                                    <li>WhatsApp workflow support where available.</li>
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="toggle-content" id="usecases-content">
+                    <div class="comparison-table fade-in">
+                        <div class="comparison-header">
+                <h3>Why Choose Ikontel as Your Voicebot Solution Provider in Vietnam</h3>
+                        </div>
+                <p class="mt-5">As a top Voicebot Solution Provider in Vietnam, Ikontel understands local market needs,
+compliance regulations, and customer behavior.</p>
+                        <div class="comparison-content" style="grid-template-columns: none;">
+                            <div class="comparison-side">
+                                <h3>🎙️ Our Voicebot and Chatbot solutions empower banks to:</h3>
+                                <ul class="comparison-list">
+                                    <li>Automate complex, sensitive tasks without extra human effort. </li>
+<li> Ensure full SBV and MIC compliance by design. </li>
+<li>Seamlessly integrate into existing systems. </li>
+Scale effortlessly as business grows. </li>
+<li>Deliver a consistent, polite, and professional customer experience. </li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="rs-service-3 rs-service-grid-2  loaded">
+
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="rs-pricing-contact__content">
-                        <h4 class="title">WhatsApp</h4>
-                        <p>We support WhatsApp workflows where available (global capability).</p>
-                         <br>
-                        <h4 class="title">Get Started</h4>
-                        <p> See how Voice Bots can boost CX, renewals, and (when needed) compliant recoveries.
-</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="rs-pricing-contact__info">
-                        <div class="info-box">
-                            <div class="rs-icon">
-                                <img src="assets/images/phone-call-1.png" alt="">
-                            </div>
-                            <div class="rs-content">
-                                <h4 class="title">Contact Us</h4>
-                                <a href="tel:855 2669 1234">855 2669 1234</a>
-                            </div>
+          <h2 class="title" style="color: #010047;">Ikontel’s Voicebot Solution Features in Vietnam</h2>
+          <p class="mt-5">Our Voicebot Solution in Vietnam is designed to deliver scalable, reliable, and compliant
+automation for banks. <br>
+It not only automates conversations but ensures they sound natural, follow industry best
+practices, and meet strict compliance requirements.</p>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="rs-service-3__item">
+                        <div class="icon">
+                            <img src="assets/images/service/service_icon1.png" alt="">
                         </div>
-                        <div class="info-box mt-20">
-                            <div class="rs-icon">
-                                <img src="assets/images/pricing/email_icon_img.png" alt="">
-                            </div>
-                            <div class="rs-content">
-                                <h4 class="title">Email Us</h4>
-                                <a href="tel:info@yourdomail.com">info@yourdomail.com</a>
-                            </div>
+                        
+                        <p>Vietnamese &amp; English support; custom phrasing per industry.</p>
+                        
+                        <div class="rs-number-box">
+                            <span>01</span>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="rs-service-3__item">
+                        <div class="icon">
+                            <img src="assets/images/service/service_icon2.png" alt="">
+                        </div>
+                        <p>Compliance-ready scripts and call recording where applicable.<p>
+                        <div class="rs-number-box">
+                            <span>02</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="rs-service-3__item">
+                        <div class="icon">
+                            <img src="assets/images/service/service_icon3.png" alt="">
+                        </div>
+                        <p>CRM/Collections/Order-Mgmt integration for real-time updates.</p>
+                        <div class="rs-number-box">
+                            <span>03</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="rs-service-3__item">
+                        <div class="icon">
+                            <img src="assets/images/service/service_icon1.png" alt="">
+                        </div>
+                        <p>Scalable outbound campaigns; smart retry &amp; time-of-day rules.</p>
+ 
+                        <div class="rs-number-box">
+                            <span>04</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="rs-service-3__item">
+                        <div class="icon">
+                            <img src="assets/images/service/service_icon1.png" alt="">
+                        </div>
+                        <p>Audit-friendly logs &amp; encryption.</p>
+ 
+                        <div class="rs-number-box">
+                            <span>05</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-5 mb-5">This solution helps Vietnamese banks streamline their operations, reduce risk, and boost
+efficiency by automating routine and sensitive customer interactions.</p>
+
             </div>
         </div>
-    </div>
-
-
-    <!--======== Service Details Counter Start ========-->
-    <section class="rs-service-details-counter  " style="margin-top: 100px;">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-sm-6">
-            <div class="rs-service-details-counter__item">
-              <h3 class="title">
-                <span class="odometer" data-count="100">00</span> <sub>k</sub>
-              </h3>
-              <span> Happy Clients</span>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="rs-service-details-counter__item">
-              <h3 class="title">
-                <span class="odometer" data-count="250">00</span> <sub>+</sub>
-              </h3>
-              <span>Projects Done</span>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="rs-service-details-counter__item">
-              <h3 class="title">
-                <span class="odometer" data-count="60">00</span> <sub>+</sub>
-              </h3>
-              <span>Expert People</span>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="rs-service-details-counter__item">
-              <h3 class="title">
-                <span class="odometer" data-count="250">00</span> <sub>+</sub>
-              </h3>
-              <span>Portfolios</span>
-            </div>
-          </div>
+        <div class="rs-background-text">
+            <span>SERVICE SERVICE SE</span>
         </div>
-      </div>
     </section>
-    <!--======== Service Details Counter Ends ========-->
 
-    <!--======== Service Details Brand Start ========-->
-    <div class="rs-brand service-brand pb-85 pt-85">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="rs-brand__top-title">
-              <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="" />
-              <span>More than 5K+ Brands with work Ikontel</span>
-              <img src="assets/images/heart-pulse-rate-orange.svg" alt="" />
-            </div>
-          </div>
+    <section class="rs-service-3 rs-service-grid-2  loaded">
+
+        <div class="container mb-5">
+          <h2 class="title" style="color: #010047;">Conclusion</h2>
+          <p class="mt-5">While many Vietnamese banks search for <strong>chatbot companies in Vietnam</strong> today, the future of intelligent automation lies in combining <strong> Voicebot + Chatbot Solutions in Vietnam.</strong> <br>
+
+For critical tasks like <strong>Debt Collection and KYC Follow-Ups</strong>, a Voicebot Solution offers
+superior compliance, higher recovery rates, and lower costs. <br>
+Don’t let manual processes hold you back. Partner with <strong>Ikontel – The Leading Voicebot
+Solution Provider in Vietnam</strong> to unlock smarter automation and better customer outcomes.</p>
+         
         </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="rs-brand__slider">
-              <div
-                class="rs-carousel owl-carousel nav-style1"
-                data-loop="true"
-                data-items="5"
-                data-margin="0"
-                data-autoplay="true"
-                data-hoverpause="true"
-                data-autoplay-timeout="3000"
-                data-smart-speed="500"
-                data-dots="false"
-                data-nav="false"
-                data-nav-speed="false"
-                data-center-mode="false"
-                data-mobile-device="2"
-                data-mobile-device-nav="false"
-                data-mobile-device-dots="false"
-                data-ipad-device="4"
-                data-ipad-device-nav="false"
-                data-ipad-device-dots="false"
-                data-ipad-device2="3"
-                data-ipad-device-nav2="false"
-                data-ipad-device-dots2="false"
-                data-md-device="4"
-                data-lg-device="5"
-                data-md-device-nav="false"
-                data-md-device-dots="false"
-                data-doteach="false"
-              >
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner1.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-1.png"
-                      alt=""
-                    />
-                  </a>
+
+    </section>
+
+
+
+    <footer style="display:block" id="rs-contact" class="rs-footer rs-footer-2">
+      <div class="rs-footer__top" style="
+    margin-top: -46px;
+">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="rs-footer__info-box">
+                <div class="icon">
+                  <img src="assets/images/footer/info-3.png" alt="" />
                 </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner2.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-2.png"
-                      alt=""
-                    />
-                  </a>
+                <div class="content">
+                  <span>Contact Us</span>
+                  <a href="tel:+004555012065">+918867858986</a>
                 </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner3.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-3.png"
-                      alt=""
-                    />
-                  </a>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="rs-footer__info-box">
+                <div class="icon">
+                  <img src="assets/images/footer/info-1.png" alt="" />
                 </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner4.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-4.png"
-                      alt=""
-                    />
-                  </a>
+                <div class="content">
+                  <span>Email Us</span>
+                  <a href="mailto:info@ikontel.com">info@ikontel.com</a>
                 </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner5.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-5.png"
-                      alt=""
-                    />
-                  </a>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="rs-footer__info-box">
+                <div class="icon">
+                  <img src="assets/images/footer/info-2.png" alt="" />
                 </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner6.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-6.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner7.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-7.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner8.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-8.png"
-                      alt=""
-                    />
-                  </a>
+                <div class="content">
+                  <span>Address</span>
+                  <h4 class="title">
+                    10th Floor, Room V1002 -Citilight Tower- No 45 Vo Thi Sau
+                    st, Tan Dinh Ward, Ho Chi Minh City
+                  </h4>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!--======== Service Details Brand Ends ========-->
-
-    <!--======== Footer 2 Start ========-->
-       <footer class="rs-footer rs-footer-2 rs-footer-3">
       <div class="rs-footer__main-box">
         <div class="container">
           <div class="row">
             <div class="col-lg-3">
               <div class="rs-footer__about-box">
-                <a href="#"
+                <a href="index-2.html"
                   ><img
                     src="https://www.ikontel.com/assets/img/logo/iKonTel-logo.png"
                     alt=""
@@ -833,27 +1275,27 @@
                 </div>
                 <ul>
                   <li>
-                    <a href="service-details-3.html"
+                    <a href="service-details-2.html"
                       ><i class="ri-arrow-right-fill"></i> IT Management</a
                     >
                   </li>
                   <li>
-                    <a href="service-details-3.html"
+                    <a href="service-details-2.html"
                       ><i class="ri-arrow-right-fill"></i> IT Solutions</a
                     >
                   </li>
                   <li>
-                    <a href="service-details-3.html"
+                    <a href="service-details-2.html"
                       ><i class="ri-arrow-right-fill"></i> Machine Learning</a
                     >
                   </li>
                   <li>
-                    <a href="service-details-3.html"
+                    <a href="service-details-2.html"
                       ><i class="ri-arrow-right-fill"></i> Product Design</a
                     >
                   </li>
                   <li>
-                    <a href="service-details-3.html"
+                    <a href="service-details-2.html"
                       ><i class="ri-arrow-right-fill"></i> SEO Optimization</a
                     >
                   </li>
@@ -905,7 +1347,7 @@
                 <form action="#">
                   <div class="input-box">
                     <input type="email" placeholder="Your email address" />
-                    <button class="main-btn-2">
+                    <button class="main-btn">
                       Subscribe
                       <svg
                         width="13"
@@ -931,7 +1373,7 @@
           <div class="row align-items-center">
             <div class="col-lg-5">
               <div class="rs-footer__copyright-text">
-               <p>
+                <p>
                   © 2007
                   <a target="_blank" href="https://www.ikontel.com/"
                     >iKonTel solutions pvt ltd</a
@@ -1042,5 +1484,114 @@
 
     <!-- Activation JS -->
     <script src="./assets/js/main.js"></script>
-  </body>
+
+  
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Toggle comparison content
+        function showComparison(type) {
+            // Update buttons
+            document.querySelectorAll('.toggle-option').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update content
+            document.querySelectorAll('.toggle-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(type + '-content').classList.add('active');
+        }
+
+        // Interactive stat cards
+        document.querySelectorAll('.stat-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.05)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Feature cards interaction
+        document.querySelectorAll('.feature-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+                item.style.color = 'white';
+                
+                setTimeout(() => {
+                    item.style.background = 'white';
+                    item.style.color = '#333';
+                }, 1000);
+            });
+        });
+
+        // Typing effect for hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function typing() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                }
+            }
+            
+            typing();
+        }
+
+        // Initialize typing effect after page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const heroTitle = document.querySelector('.hero h1');
+                const originalText = heroTitle.textContent;
+                typeWriter(heroTitle, originalText, 80);
+            }, 1000);
+        });
+    </script>
+</body>
 </html>
