@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-  <head>
+<html lang="en">
+ <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Ikontel</title>
@@ -65,11 +65,441 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
+    <style>
+        /* Global Reset */
+        .reset-all * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <body class="service-details-2">
-    <!--======== Inner Header start ========-->
-    <div class="full-width-header rs-header-layout-3">
+
+
+        .container1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+
+
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideInUp 1s ease forwards 0.5s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideInUp 1s ease forwards 0.7s;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: slideInUp 1s ease forwards 0.9s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Solutions Section */
+        .solutions {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .solution-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .solution-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .solution-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    width: 90px;
+    background: linear-gradient(135deg, #2980b920, #8e44ad20);
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    transition: all 0.3s 
+ease;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+        }
+
+        .comparison-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .comparison-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .comparison-side {
+            padding: 2rem;
+        }
+
+        .comparison-side:first-child {
+            border-right: 1px solid #eee;
+            background: #f8f9fa;
+        }
+
+        .comparison-side h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .comparison-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+
+        /* Interactive Toggle */
+        .toggle-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .toggle-container1 {
+            display: inline-flex;
+            background: #f0f0f0;
+            border-radius: 50px;
+            padding: 5px;
+            margin-bottom: 2rem;
+        }
+
+        .toggle-option {
+            padding: 10px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .toggle-option.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .toggle-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .toggle-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+       
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #4ecdc4;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .comparison-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-side:first-child {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+  </head>
+<body>
+
+     <!--======== Inner Header start ========-->
+     <div class="full-width-header rs-header-layout-3">
+   <div class="full-width-header rs-header-layout-3">
       <!--Header Start-->
       <header id="rs-header" class="rs-header">
         
@@ -312,33 +742,20 @@
       </div>
     </div>
 
-    <!--======== Preloader area start ========-->
-    <div id="pre-load">
-      <div id="loader" class="loader">
-        <div class="loader-container">
-          <div class="loader-icon">
-            <img src="assets/images/favicon.png" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--======== Preloader area Ends ========-->
-
-    <!--======== Service Details Page Banner 2 Start ========-->
-    
+  
+    <!--======== Contact Page Banner Start ========-->
     <section class="rs-page-banner">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="rs-page-banner__content">
               <h1 class="title">Skip Tracing Solution – Smart Borrower
-Tracking for Vietnam
- </h1>
+Tracking for Vietnam</h1>
               <ul>
-                <li><i class="ri-home-wifi-line"></i> <a href="index.html">Home</a></li>
-                <li><i class="ri-arrow-right-fill"></i> <a href="#">Service</a></li>
+                <li><i class="ri-home-wifi-line"></i> <a href="#">Home</a></li>
+                 <li><i class="ri-arrow-right-fill"></i> <a href="#">Service</a></li>
                 <li>
-                  <i class="ri-arrow-right-fill"></i> Speech Recognition 
+                  <i class="ri-arrow-right-fill"></i> Skip Tracing Solution
 
                 </li>
               </ul>
@@ -347,68 +764,76 @@ Tracking for Vietnam
         </div>
       </div>
     </section>
-    <!--======== Service Details Page Banner 2 Ends ========-->
+    <!--======== Contact Page Banner Ends ========-->
 
-    <!--======== Service Details 2 Start ========-->
-    <section class="rs-service-details-about pt-120 pb-145">
+    <section class="rs-service-details-about pt-120 pb-145 loaded">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="rs-section-title black">
-              <div class="top-sub-heading">
-                <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="" />
-                <span> Speech Recognition Services in Vietnam </span>
-              </div>
-              <h2 class="title split-in-fade">
-                Turning Calls into Compliance-Ready Insights
-              </h2>
-              <p class="mb-20">
-                very regulated conversation matters. <strong>Ikontel Speech Recognition</strong> converts Vietnamese/English calls into accurate transcripts, then surfaces insights for <strong>quality, compliance, and performance—ideal</strong> for <strong>collections</strong> , but equally valuable for <strong> support, renewals, and operations.</strong>
-              </p>
+              <h2 class="title split-in-fade" style="perspective: 400px;">
+  Skip Tracing Solution – Smart Borrower
+Tracking for Vietnam
+</h2>
+
+<p class="mb-20">Loan defaults are one of the biggest challenges faced by banks, NBFCs, and microfinance
+institutions in Vietnam. As lending expands across the country, so does the risk of borrowers
+who miss payments or disappear without providing updated contact information. Tracking
+these customers manually is expensive, time-consuming, and often yields poor results. <br><br>
+
+To solve this challenge, Ikontel introduces its AI-powered Skip Tracing Solution, designed
+specifically for financial institutions in Vietnam. By leveraging advanced data analytics,
+AI, and local communication channels, lenders can quickly locate unreachable borrowers,
+re-establish contact, and recover overdue payments—while staying compliant with State
+Bank of Vietnam (SBV) regulations.
+</p>
 
               <a href="contact.html" class="main-btn mt-40">
-                Contact Us <i class="ri-arrow-right-fill"></i
-              ></a>
+                Contact Us <i class="ri-arrow-right-fill"></i></a>
             </div>
           </div>
           <div class="col-lg-6">
             <div class="rs-thumb">
-              <img src="assets/images/faq/faq-left-img.png" alt="" />
+              <img src="assets/images/faq/faq-left-img.png" alt="">
               <div class="rs-shape">
-                <img src="assets/images/faq/couple-ball-layer.svg" alt="" />
+                <img src="assets/images/faq/couple-ball-layer.svg" alt="">
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!--======== Service Details 2 Ends ========-->
-
-  
 
     <div class="container">
         <div class="row">
           <div class="col-lg-8">
             <div class="rs-project-details__content">
               <div class="rs-project-content">
-                <h2 class="title">What It Does</h2>
+                <h2 class="title">Why Skip Tracing is Critical in Vietnam</h2>
                 <div class="rs-list-box">
+                  
                   <ul>
+                    <strong>Vietnam’s financial landscape is changing rapidly:</strong><br><br>
                     <li>
                       <i class="ri-share-forward-fill"></i> 
-                      <strong>Automatic transcription</strong> in real time or post-call.
+                      Rising demand for <strong>personal loans, BNPL (Buy Now Pay Later), and credit cards</strong>
                     </li>
                     <li>
                       <i class="ri-share-forward-fill"></i> 
-                      <strong>Compliance assurance </strong> with searchable archives (SBV contexts) and <strong> MIC-aligned </strong> storage.
+                      Increasing urban migration, with borrowers frequently changing addresses or phone numbers
                     </li>
                     <li>
                       <i class="ri-share-forward-fill"></i> 
-                      <strong> Analytics : </strong> recurring objections, sentiment/intent signals, script adherence.
-
+                      Dependence on <strong>mobile-first communication</strong> through Zalo, MoMo, and SMS
                     </li>
-
-    
+                    <li>
+                      <i class="ri-share-forward-fill"></i> 
+                      Higher competition among lenders, making default recovery more urgent
+                    </li> <br>
+                    <p> 
+                      Traditional follow-up methods—manual calling, field visits, and third-party collection
+agencies—are slow and costly. A <strong>digital skip tracing solution</strong> is the smarter alternative.
+                    </p>
                   </ul>
                 </div>
 
@@ -420,60 +845,173 @@ Tracking for Vietnam
           </div>
         </div>
     </div>
+   
 
-    <section class="rs-service-3 rs-service-grid-2 pt-90 pb-120 loaded">
+    <section class="rs-counter-2 rs-counter-3 mt-5 pb-125 loaded">
+      <div class="container">
+        <div class="row">
+        
+          <div class="col-lg-4 col-sm-6">
+            <div class="rs-counter-2__item item-3">
+              <div class="rs-counter-2__icon">
+                <img src="assets/images/counter/counter-3.png" alt="">
+              </div>
+              <div class="rs-counter-2__content">
+                <h4 class="title">
+                  <span class="rs-count odometer odometer-auto-theme" data-count="500"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span> +
+                </h4>
+                <span>Businesses Supported</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="rs-counter-2__item">
+              <div class="rs-counter-2__icon">
+                <img src="assets/images/counter/counter-1.png" alt="">
+              </div>
+              <div class="rs-counter-2__content">
+                <h4 class="title">
+                  <span class="rs-count odometer odometer-auto-theme" data-count="20"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">2</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span> +
+                </h4>
+                <span>Industries Impacted</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="rs-counter-2__item item-4">
+              <div class="rs-counter-2__icon">
+                <img src="assets/images/counter/counter-4.png" alt="">
+              </div>
+              <div class="rs-counter-2__content">
+                <h4 class="title">
+                  <span class="rs-count odometer odometer-auto-theme" data-count="650"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">6</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span> +
+                </h4>
+                <span>Team Members</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+    <section class="solutions" id="solutions">
+        <div class="container1">
+            <h2 class="section-title fade-in">The Future of Loan Recovery in Vietnam</h2>
+            <p>As Vietnam’s financial market grows, lenders must adopt technology-driven recovery
+methods to stay competitive. Skip tracing is no longer just about finding borrowers—it’s
+about <strong>using AI, automation, and local digital channels to ensure fast, compliant, and
+cost-effective loan recovery.</strong> </p> <br>
+<p>Ikontel’s <strong>Skip Tracing Solution</strong> helps Vietnamese banks and NBFCs <strong>locate defaulters, improve recovery rates, and strengthen borrower relationships</strong> without adding extra
+burden to their teams.</p> <br>
+<p>For financial institutions looking to reduce defaults and enhance efficiency, skip tracing with
+AI is the future.</p>
+
+        </div>
+    </section>
+
+
+    
+    <section class="features" id="features">
+        <div class="container1">
+            <h2 class="section-title fade-in">Benefits for Vietnamese Banks &amp; Lenders</h2>
+            <div class="features-grid">
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">📈</div>
+                    <p> <b>Higher Recovery Success :</b> Quickly reconnect with unreachable borrowers.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">💰</div>
+                    <p> <strong>Lower Costs :</strong> Reduce reliance on expensive field agents and manual follow-ups.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">⭐</div>
+                    <p> <strong>Better Customer Experience :</strong> Maintain professionalism while reminding borrowers
+of obligations.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🛡️</div>
+                    <p> <strong>Regulatory Compliance :</strong> Fully aligned with SBV data security and
+communication standards.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🚀</div>
+                    <p> <strong>AScalability : </strong>Works for both small microfinance institutions and nationwide banks.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+  
+
+
+    <section class="rs-service-3 rs-service-grid-2 mt-5  loaded">
 
         <div class="container">
-          <h2 class="title" style="color: #010047;">Use Cases</h2>
+          <h2 class="title" style="color: #010047;">Key Features of Ikontel’s Skip Tracing Solution</h2>
             <div class="row">
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-4 col-sm-6">
                     <div class="rs-service-3__item">
                         <div class="icon">
                             <img src="assets/images/service/service_icon1.png" alt="">
                         </div>
-                        <h3 class="title"><a href="service-details.html"><strong>Collections & Recovery</strong> </a></h3>
-                        <p>Dispute evidence, promise-to-pay verification, script adherence.</p>
+                        
+                        <p><strong class="text-white">AI-Powered Borrower Identification : </strong>Uses advanced algorithms to cross-check borrower data across multiple sources and
+update missing contact details.</p>
                         
                         <div class="rs-number-box">
                             <span>01</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-4 col-sm-6">
                     <div class="rs-service-3__item">
                         <div class="icon">
                             <img src="assets/images/service/service_icon2.png" alt="">
                         </div>
-                        <h3 class="title"><a href="service-details.html"><strong>Customer Support QA:</strong></a></h3>
-                        <p>Coaching, escalation review, first-call resolution improvement.</p>
+                        <p><strong class="text-white">Multi-Channel Outreach : </strong>Engage borrowers via voice calls, SMS, Zalo messages, and MoMo notifications,
+increasing the chance of response.<p>
                         <div class="rs-number-box">
                             <span>02</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-4 col-sm-6">
                     <div class="rs-service-3__item">
                         <div class="icon">
                             <img src="assets/images/service/service_icon3.png" alt="">
                         </div>
-                        <h3 class="title"><a href="service-details.html"><strong>Sales/Renewals:</strong></a></h3>
-                        <p>Objection libraries, playbook optimization.</p>
-                        <a href="service-details.html">Read More <i class="ri-arrow-right-fill"></i></a>
+                        <p><strong class="text-white">Automated Reminders : </strong>Sends repayment alerts at the right time and in the borrower’s preferred language
+(Vietnamese or English).</p>
                         <div class="rs-number-box">
                             <span>03</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-4 col-sm-6">
                     <div class="rs-service-3__item">
                         <div class="icon">
                             <img src="assets/images/service/service_icon1.png" alt="">
                         </div>
-                        <h3 class="title"><a href="service-details.html"><strong>Operations & Risk</strong></a></h3>
-                        <p> Fraud cues, complaint trends, policy/process gaps.</p>
+                        <p><strong class="text-white">Risk Profiling : </strong> Categorizes borrowers by repayment risk level, helping lenders prioritize efforts for
+maximum recovery.</p>
  
                         <div class="rs-number-box">
                             <span>04</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="rs-service-3__item">
+                        <div class="icon">
+                            <img src="assets/images/service/service_icon1.png" alt="">
+                        </div>
+                        <p><strong class="text-white">Real-Time Tracking : </strong>Provides a centralized dashboard for monitoring borrower interactions, repayment
+status, and recovery performance.</p> <br>
+ 
+                        <div class="rs-number-box">
+                            <span>05</span>
                         </div>
                     </div>
                 </div>
@@ -485,298 +1023,27 @@ Tracking for Vietnam
         </div>
     </section>
 
-      <!--======== Service Details Features Start ========-->
+    <section class="rs-service-3 rs-service-grid-2 mt-5  loaded">
 
-    <!--======== Service Details Features Ends ========-->
+        <div class="container mb-5">
+          <h2 class="title" style="color: #010047;">Real-World Example</h2>
+          <p class="mt-5">Consider a borrower in Da Nang who changes phone numbers after missing multiple EMI
+payments. Traditionally, the lender might lose contact for weeks. With Ikontel’s <strong>Skip
+Tracing Solution</strong> , AI quickly identifies the borrower’s updated number from alternate
+databases. An automated Zalo message is sent with a repayment link via <strong>ZaloPay/MoMo,</strong>
+followed by a personalized voicebot call in Vietnamese.</p> <br>
 
-    <section class="rs-service-details pb-120 loaded ">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="rs-service-details__content">
+<p>The borrower repays instantly—reducing the lender’s risk and restoring customer trust.</p>
 
-              <div class="rs-content">
-                <h3 class="title mt-30">Features</h3>
-                <div class="rs-service-list-box">
-                  <div class="rs-thumb">
-                    <img src="assets/images/service/service-detail-small-img.jpg" alt="">
-                  </div>
-                  <div class="rs-list">
-                    <ul>
-                      <li>
-                        <i class="ri-share-forward-fill"></i>
-                        High accuracy for <strong> Vietnamese accents/dialects. </strong>
-                      </li>
-                      <li>
-                        <i class="ri-share-forward-fill"></i> 
-                        <strong>Dashboards </strong> for search, tags, and trends.
-                      </li>
-                      <li>
-                        <i class="ri-share-forward-fill"></i>
-                        <strong>Integrations </strong> with CRM/collections/ticketing tools.
-
-                      </li>
-                      <li>
-                        <i class="ri-share-forward-fill"></i> 
-                        <strong>Encrypted storage </strong> with role-based access.
-
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <h3 class="title pt-40 pb-15">Benefits</h3>
-                <div class="row">
-                  <div class="col-lg-6 mb-3">
-                    <div class="rs-service-benefit">
-                      <h4 class="title">01</h4>
-                      <p>
-                      <strong>Audit-readiness </strong> and risk reduction.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 mb-3">
-                    <div class="rs-service-benefit">
-                      <h4 class="title">02</h4>
-                      <p>
-                       <strong> Agent productivity </strong> (no manual notes).
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 mb-3">
-                    <div class="rs-service-benefit">
-                      <h4 class="title">03</h4>
-                      <p>
-                      <strong>Better outcomes </strong> from evidence-based coaching.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 mb-3">
-                    <div class="rs-service-benefit">
-                      <h4 class="title">04</h4>
-                      <p>
-                       <strong> Faster dispute resolution </strong> across industries.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
+         
         </div>
-      </div>
+
     </section>
 
-    <div class="rs-pricing-contact pt-90 pb-90">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="rs-pricing-contact__content">
-                        <h4 class="title">Start Automating</h4>
-                        <p>Turn conversations into measurable quality and compliant proof.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="rs-pricing-contact__info">
-                        <div class="info-box">
-                            <div class="rs-icon">
-                                <img src="assets/images/phone-call-1.png" alt="">
-                            </div>
-                            <div class="rs-content">
-                                <h4 class="title">Contact Us</h4>
-                                <a href="tel:855 2669 1234">855 2669 1234</a>
-                            </div>
-                        </div>
-                        <div class="info-box mt-20">
-                            <div class="rs-icon">
-                                <img src="assets/images/pricing/email_icon_img.png" alt="">
-                            </div>
-                            <div class="rs-content">
-                                <h4 class="title">Email Us</h4>
-                                <a href="tel:info@yourdomail.com">info@yourdomail.com</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
-    <!--======== Service Details Counter Start ========-->
-    <section class="rs-service-details-counter  " style="margin-top: 100px;">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-sm-6">
-            <div class="rs-service-details-counter__item">
-              <h3 class="title">
-                <span class="odometer" data-count="100">00</span> <sub>k</sub>
-              </h3>
-              <span> Happy Clients</span>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="rs-service-details-counter__item">
-              <h3 class="title">
-                <span class="odometer" data-count="250">00</span> <sub>+</sub>
-              </h3>
-              <span>Projects Done</span>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="rs-service-details-counter__item">
-              <h3 class="title">
-                <span class="odometer" data-count="60">00</span> <sub>+</sub>
-              </h3>
-              <span>Expert People</span>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <div class="rs-service-details-counter__item">
-              <h3 class="title">
-                <span class="odometer" data-count="250">00</span> <sub>+</sub>
-              </h3>
-              <span>Portfolios</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--======== Service Details Counter Ends ========-->
-
-    <!--======== Service Details Brand Start ========-->
-    <div class="rs-brand service-brand pb-85 pt-85">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="rs-brand__top-title">
-              <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="" />
-              <span>More than 5K+ Brands with work Ikontel</span>
-              <img src="assets/images/heart-pulse-rate-orange.svg" alt="" />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="rs-brand__slider">
-              <div
-                class="rs-carousel owl-carousel nav-style1"
-                data-loop="true"
-                data-items="5"
-                data-margin="0"
-                data-autoplay="true"
-                data-hoverpause="true"
-                data-autoplay-timeout="3000"
-                data-smart-speed="500"
-                data-dots="false"
-                data-nav="false"
-                data-nav-speed="false"
-                data-center-mode="false"
-                data-mobile-device="2"
-                data-mobile-device-nav="false"
-                data-mobile-device-dots="false"
-                data-ipad-device="4"
-                data-ipad-device-nav="false"
-                data-ipad-device-dots="false"
-                data-ipad-device2="3"
-                data-ipad-device-nav2="false"
-                data-ipad-device-dots2="false"
-                data-md-device="4"
-                data-lg-device="5"
-                data-md-device-nav="false"
-                data-md-device-dots="false"
-                data-doteach="false"
-              >
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner1.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-1.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner2.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-2.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner3.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-3.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner4.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-4.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner5.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-5.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner6.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-6.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner7.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-7.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="assets/images/brand/partner8.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-8.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--======== Service Details Brand Ends ========-->
-
-    <!--======== Footer 2 Start ========-->
-     <footer class="rs-footer rs-footer-2 rs-footer-3">
+    
+    <footer class="rs-footer rs-footer-2 rs-footer-3">
       <div class="rs-footer__main-box">
         <div class="container">
           <div class="row">
@@ -897,6 +1164,7 @@ Tracking for Vietnam
         </div>
       </div>
     </footer>
+
     <!--======== Footer 2 Ends ========-->
 
     <!--======== Scroll up and prograss start ========-->
@@ -985,5 +1253,114 @@ Tracking for Vietnam
 
     <!-- Activation JS -->
     <script src="./assets/js/main.js"></script>
-  </body>
+
+  
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Toggle comparison content
+        function showComparison(type) {
+            // Update buttons
+            document.querySelectorAll('.toggle-option').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update content
+            document.querySelectorAll('.toggle-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(type + '-content').classList.add('active');
+        }
+
+        // Interactive stat cards
+        document.querySelectorAll('.stat-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.05)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Feature cards interaction
+        document.querySelectorAll('.feature-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+                item.style.color = 'white';
+                
+                setTimeout(() => {
+                    item.style.background = 'white';
+                    item.style.color = '#333';
+                }, 1000);
+            });
+        });
+
+        // Typing effect for hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function typing() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                }
+            }
+            
+            typing();
+        }
+
+        // Initialize typing effect after page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const heroTitle = document.querySelector('.hero h1');
+                const originalText = heroTitle.textContent;
+                typeWriter(heroTitle, originalText, 80);
+            }, 1000);
+        });
+    </script>
+</body>
 </html>

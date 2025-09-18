@@ -65,234 +65,10 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
+   
     <style>
-        /* Global Reset */
-        .reset-all * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-
-
-        .container1 {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-
-
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,0 1000,300 1000,1000 0,700"/></svg>');
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: slideInUp 1s ease forwards 0.5s;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: slideInUp 1s ease forwards 0.7s;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: slideInUp 1s ease forwards 0.9s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Stats Section */
-        .stats {
-            background: #f8f9fa;
-            padding: 60px 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        /* Solutions Section */
-        .solutions {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-        }
-
-        .solutions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .solution-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .solution-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .solution-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .solution-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .solution-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .solution-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .solution-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Features Section */
-        .features {
+          .features {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             padding: 80px 0;
         }
@@ -323,171 +99,312 @@
             margin-bottom: 1rem;
         }
 
-        /* Comparison Section */
-        .comparison {
-            padding: 80px 0;
-            background: white;
+
+        .mycontainer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
 
-        .comparison-table {
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .service-card {
             background: white;
             border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-top: 3rem;
-        }
-
-        .comparison-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .comparison-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-        }
-
-        .comparison-side {
-            padding: 2rem;
-        }
-
-        .comparison-side:first-child {
-            border-right: 1px solid #eee;
-            background: #f8f9fa;
-        }
-
-        .comparison-side h3 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
-        }
-
-        .comparison-list {
-            list-style: none;
-        }
-
-        .comparison-list li {
-            padding: 0.5rem 0;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            padding-left: 2rem;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out;
         }
 
-        .comparison-list li::before {
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .toll-free-icon {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .missed-call-icon {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+
+        .service-title {
+            font-size: 1.8rem;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .service-description {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            color: #555;
+        }
+
+        .features-list li::before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: #4ecdc4;
+            color: #4CAF50;
             font-weight: bold;
         }
 
-        /* Interactive Toggle */
-        .toggle-section {
+        .use-cases {
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 60px 0;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .use-cases h2 {
+            font-size: 2.2rem;
+            color: #333;
             text-align: center;
-            margin: 3rem 0;
+            margin-bottom: 40px;
+            position: relative;
         }
 
-        .toggle-container1 {
-            display: inline-flex;
-            background: #f0f0f0;
-            border-radius: 50px;
-            padding: 5px;
-            margin-bottom: 2rem;
+        .use-cases h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
         }
 
-        .toggle-option {
-            padding: 10px 30px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: transparent;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .toggle-option.active {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-        }
-
-        .toggle-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .toggle-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Footer */
-       
-
-        .footer-content {
+        .use-cases-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 25px;
         }
 
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #4ecdc4;
+        .use-case-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
-        .footer-section p, .footer-section a {
-            color: #ccc;
-            text-decoration: none;
+        .use-case-item:hover {
+            transform: translateY(-5px);
         }
 
-        .footer-section a:hover {
-            color: #4ecdc4;
+        .use-case-item h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
         }
 
-        /* Responsive */
+        .use-case-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .features-benefits {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .features-benefits h2 {
+            font-size: 2.2rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .features-benefits h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #43e97b, #38f9d7);
+            border-radius: 2px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .benefit-item h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .benefit-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .comparison-content {
+            .services-grid {
                 grid-template-columns: 1fr;
             }
             
-            .comparison-side:first-child {
-                border-right: none;
-                border-bottom: 1px solid #eee;
+            .header h1 {
+                font-size: 2rem;
             }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+            
+            .service-card {
+                padding: 25px;
+            }
+            
+            .use-cases-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
   </head>
 <body>
 
-     <!--======== Inner Header start ========-->
      <div class="full-width-header rs-header-layout-3">
-   <div class="full-width-header rs-header-layout-3">
       <!--Header Start-->
       <header id="rs-header" class="rs-header">
         
@@ -737,13 +654,13 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="rs-page-banner__content">
-              <h1 class="title">Hybrify Connecta – Unified Banking
-Communication in Vietnam</h1>
+              <h1 class="title">Gen AI Cloud Telephony – Future-Ready
+Banking Communication in Vietnam</h1>
               <ul>
-                <li><i class="ri-home-wifi-line"></i> <a href="#">Home</a></li>
+                <li><i class="ri-home-wifi-line"></i> <a href="index.html">Home</a></li>
                  <li><i class="ri-arrow-right-fill"></i> <a href="#">Service</a></li>
                 <li>
-                  <i class="ri-arrow-right-fill"></i> Hybrify Connecta 
+                  <i class="ri-arrow-right-fill"></i>Gen AI Cloud Telephony
 
                 </li>
               </ul>
@@ -759,27 +676,16 @@ Communication in Vietnam</h1>
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="rs-section-title black">
+              <h2 class="title split-in-fade" style="perspective: 400px;">Gen AI Cloud Telephony – Future-Ready
+Banking Communication in Vietnam</h2>
+         <p class="mb-20">As Vietnam’s financial services sector rapidly embraces  <strong>digital banking , mobile payments, and fintech innovation </strong>, traditional telephony infrastructure struggles to keep up. Banks and
+NBFCs need a <strong>scalable, secure, and intelligent communication system</strong> that can handle
+high volumes of calls, support multiple languages, and integrate seamlessly with modern
+digital channels like  <strong>MoMo, ZaloPay, and mobile banking apps.</strong></p>
 
-              <h2 class="title split-in-fade" style="perspective: 400px;">
- Hybrify Connecta – Unified Banking
-Communication in Vietnam
-</h2>
-
-               <p class="mb-20">
-               The financial services industry in Vietnam is evolving at an unprecedented pace. With the
-expansion of digital banking, fintech startups, and mobile payments, customer expectations
-have changed dramatically. People want fast, reliable, and personalized communication with
-their banks through the platforms they use every day. For financial institutions, this creates a
-challenge—how do you manage calls, SMS, Zalo messages, and MoMo payment updates in
-one seamless workflow?
-              </p>
-
-              <p class="mb-20">
-                <strong>Hybrify Connecta</strong> is Ikontel’s powerful solution designed to solve this challenge for
-<strong>Vietnamese banks, NBFCs, and fintechs</strong>. It unifies multiple customer engagement channels
-into a single intelligent platform, helping institutions streamline operations, improve loan
-recovery, and build stronger customer relationships.
-              </p>
+<p>Ikontel’s <strong>Gen AI Cloud Telephony</strong> delivers all this and more. Designed for Vietnamese
+banks, fintechs, and lending institutions, it combines <strong>cloud-based telephony, AI-powered
+automation, and advanced analytics</strong> to create a future-ready communication platform.</p>
 
               <a href="contact.html" class="main-btn mt-40">
                 Contact Us <i class="ri-arrow-right-fill"></i></a>
@@ -797,89 +703,115 @@ recovery, and build stronger customer relationships.
       </div>
     </section>
 
-    <div class="container">
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="rs-project-details__content">
-              <div class="rs-project-content">
-                <h2 class="title">The Need for Unified Communication in Vietnam</h2>
-                <p>
-                 Vietnam’s financial ecosystem is expanding rapidly. With mobile payment apps like MoMo
-and ZaloPay becoming household names and the rise of microfinance and consumer lending,
-financial institutions are under pressure to keep communication smooth and compliant.
-However, most banks still operate with fragmented systems—agents handle phone calls
-separately, SMS reminders are sent manually, and Zalo or email updates are managed through
-different platforms.
-                </p> <br>
 
-                <p>
-                  This fragmented approach leads to delays, inefficiency, and poor customer satisfaction. In a
-competitive market, banks can no longer afford this. That’s where <strong>Hybrify Connecta</strong> steps
-in.
-                </p>
-               
 
-              </div>
+    <section class="rs-service-3 rs-service-grid-2  loaded mt-5">
+
+        <div class="container">
+          <h2 class="title" style="color: #010047;">Key Features of Gen AI Cloud Telephony Solution</h2>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="rs-service-3__item">
+                        <div class="icon">
+                            <img src="assets/images/service/service_icon1.png" alt="">
+                        </div>
+                        <h2 class="text-white">Virtual Call Centers</h2>
+                        
+                        <p>Set up complete call center operations without physical hardware, enabling teams to
+work remotely or from multiple locations.</p>
+                        <br>
+                        
+                        <div class="rs-number-box">
+                            <span>01</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="rs-service-3__item">
+                        <div class="icon">
+                            <img src="assets/images/service/service_icon2.png" alt="">
+                        </div>
+                        <h2 class="text-white">AI-Powered IVR &amp; Smart Routing</h2>
+                        <p>Intelligent call distribution ensures customers are directed to the right agent or
+automated service efficiently.<p>
+                        <div class="rs-number-box">
+                            <span>02</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="rs-service-3__item">
+                        <div class="icon">
+                            <img src="assets/images/service/service_icon3.png" alt="">
+                        </div>
+                        <h2 class="text-white">Multi-Language Support</h2>
+                        <p>Handles calls in Vietnamese and English, ensuring accessibility for all customer
+segments.
+segments.</p>
+                        <br>
+                        <br>
+                        <div class="rs-number-box">
+                            <span>03</span>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="col-lg-4 col-sm-6">
+                    <div class="rs-service-3__item">
+                        <div class="icon">
+                            <img src="assets/images/service/service_icon1.png" alt="">
+                        </div>
+                        <h2 class="text-white">Integration with Digital Payments &amp; Apps</h2>
+                        <p>Connect with MoMo, ZaloPay, and mobile banking apps to facilitate repayment
+reminders and transactional notifications.</p>
+                        <br><br><br>
+ 
+                        <div class="rs-number-box">
+                            <span>04</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="rs-service-3__item">
+                        <div class="icon">
+                            <img src="assets/images/service/service_icon1.png" alt="">
+                        </div>
+                        <h2 class="text-white">Real-Time Analytics &amp; Reporting</h2>
+                        <p>Track agent performance, call volumes, loan recovery success, and customer
+satisfaction metrics in real-time.</p>
+                        <br><br><br>
+ 
+                        <div class="rs-number-box">
+                            <span>05</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="rs-service-3__item">
+                        <div class="icon">
+                            <img src="assets/images/service/service_icon1.png" alt="">
+                        </div>
+                        <h2 class="text-white">Secure &amp; Compliant</h2>
+                        <p>Fully compliant with State Bank of Vietnam (SBV) guidelines and local data
+security regulations.</p>
+                        <br><br><br>
+ 
+                        <div class="rs-number-box">
+                            <span>06</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-5 mb-5"></p>
+
             </div>
-          </div>
-          <div class="col-lg-4">
-            <img src="assets/images/banner/banner-thumb-1.png" alt="">
-          </div>
         </div>
-    </div>
-   
-
-       <!--======== Service Details Counter Start ========-->
-    <section class="rs-counter-2 rs-counter-3 mt-5 pb-125 loaded">
-      <div class="container">
-        <div class="row">
-        
-          <div class="col-lg-4 col-sm-6">
-            <div class="rs-counter-2__item item-3">
-              <div class="rs-counter-2__icon">
-                <img src="assets/images/counter/counter-3.png" alt="">
-              </div>
-              <div class="rs-counter-2__content">
-                <h4 class="title">
-                  <span class="rs-count odometer odometer-auto-theme" data-count="500"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span> +
-                </h4>
-                <span>Businesses Supported</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="rs-counter-2__item">
-              <div class="rs-counter-2__icon">
-                <img src="assets/images/counter/counter-1.png" alt="">
-              </div>
-              <div class="rs-counter-2__content">
-                <h4 class="title">
-                  <span class="rs-count odometer odometer-auto-theme" data-count="20"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">2</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span> +
-                </h4>
-                <span>Industries Impacted</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="rs-counter-2__item item-4">
-              <div class="rs-counter-2__icon">
-                <img src="assets/images/counter/counter-4.png" alt="">
-              </div>
-              <div class="rs-counter-2__content">
-                <h4 class="title">
-                  <span class="rs-count odometer odometer-auto-theme" data-count="650"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">6</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span> +
-                </h4>
-                <span>Team Members</span>
-              </div>
-            </div>
-          </div>
+        <div class="rs-background-text">
+            <span>SERVICE SERVICE SE</span>
         </div>
-      </div>
     </section>
-    <!--======== Service Details Counter Ends ========-->
 
-    <!--======== Service Details Brand Start ========-->
-    <div class="rs-brand service-brand pb-85 pt-85">
+        <!--======== Service Details Brand Start ========-->
+    <div class="rs-brand service-brand pb-85 ">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -1029,142 +961,139 @@ in.
     </div>
     <!--======== Service Details Brand Ends ========-->
 
- 
-
     <section class="features" id="features">
-        <div class="container1">
-            <h2 class="section-title fade-in">Key Features of Hybrify Connecta
+        <div class="container">
+            <h2 class="section-title fade-in visible">
+              <center>Benefits for Vietnamese Financial Institutions</center> <br>
 </h2>
             <div class="features-grid">
                 <div class="feature-item fade-in">
-                    <div class="feature-icon">🔄</div>
-                    <p><strong>Omnichannel Integration</strong> Connect with customers through <strong>voice calls, SMS, Zalo, MoMo, and mobile
-banking apps</strong> —all managed from a unified dashboard.</p>
-                </div>
-                <div class="feature-item fade-in">
-                    <div class="feature-icon">🤖</div>
-                    <p><strong>AI-Powered Smart Routing</strong>Automatically direct calls and queries to the right agent, reducing waiting times and
-ensuring faster resolution.</p>
-                </div>
-                <div class="feature-item fade-in">
                     <div class="feature-icon">💰</div>
-                    <p><strong>Automated Loan Reminders</strong>Send personalized EMI reminders via call, SMS, or Zalo with integrated
-MoMo/ZaloPay payment links.</p>
+                    <p><strong>Cost Efficiency: </strong>Reduce expenses on hardware, maintenance, and large call center setups.</p>
                 </div>
                 <div class="feature-item fade-in">
-                    <div class="feature-icon">🌐</div>
-                    <p><strong>Vietnamese + English Language Support</strong> Communicate naturally with customers in their preferred language, powered by
-advanced AI.</p>
+                    <div class="feature-icon">🚀</div>
+                    <p><strong>Scalability:</strong>Easily expand operations during peak demand or branch growth.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🎯</div>
+                    <p> <strong>Improved Customer Experience:</strong>AI-driven call routing ensures faster responses and
+fewer abandoned calls.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">💳</div>
+                    <p><strong>Enhanced Loan Recovery:</strong>Automated repayment reminders and integration with
+MoMo/ZaloPay simplify the payment process.</p>
                 </div>
                 <div class="feature-item fade-in">
                     <div class="feature-icon">📊</div>
-                    <p><strong>Real-Time Analytics</strong> Track customer engagement, loan recovery performance, and agent efficiency with
-detailed reports.</p>
+                    <p><strong>Data-Driven Insights:</strong>Make informed decisions using detailed analytics and reports.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-   
 
-
-    <section class="rs-service-3 rs-service-grid-2  loaded mt-5">
-
-        <div class="container">
-          <h2 class="title" style="color: #010047;">Benefits for Vietnamese Banks and Fintechs</h2>
-            <div class="row">
-                <div class="col-lg-4 col-sm-6">
-                    <div class="rs-service-3__item">
-                        <div class="icon">
-                            <img src="assets/images/service/service_icon1.png" alt="">
-                        </div>
-                        
-                        <p> <b>Higher Loan Recovery Rates:</b> Automated reminders ensure timely repayments and
-reduce defaults.</p>
-                        
-                        <div class="rs-number-box">
-                            <span>01</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="rs-service-3__item">
-                        <div class="icon">
-                            <img src="assets/images/service/service_icon2.png" alt="">
-                        </div>
-                        <p><b>Improved Customer Satisfaction:</b> Faster, multi-language service builds trust and
-loyalty.<p>
-                        <div class="rs-number-box">
-                            <span>02</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="rs-service-3__item">
-                        <div class="icon">
-                            <img src="assets/images/service/service_icon3.png" alt="">
-                        </div>
-                        <p> <b>Cost Reduction :</b> Automation lowers operational costs and reduces reliance on
-manual processes.</p>
-                        <div class="rs-number-box">
-                            <span>03</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="rs-service-3__item">
-                        <div class="icon">
-                            <img src="assets/images/service/service_icon1.png" alt="">
-                        </div>
-                        <p> <b>Regulatory Compliance :</b> Built to align with State Bank of Vietnam (SBV)
-guidelines and local telecom rules.</p>
- 
-                        <div class="rs-number-box">
-                            <span>04</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="rs-service-3__item">
-                        <div class="icon">
-                            <img src="assets/images/service/service_icon1.png" alt="">
-                        </div>
-                        <p> <b>Scalable Growth:</b> Supports both small fintech startups and established financial
-institutions as they expand.</p>
- 
-                        <div class="rs-number-box">
-                            <span>05</span>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
-        <div class="rs-background-text">
-            <span>SERVICE SERVICE SE</span>
-        </div>
-    </section>
 
     <section class="rs-service-3 rs-service-grid-2  loaded">
 
         <div class="container mb-5 mt-5">
-          <h2 class="title" style="color: #010047;">Building the Future of Banking in Vietnam</h2>
-          <p class="mt-5">Vietnam is one of Southeast Asia’s fastest-growing digital banking markets. To stay competitive, financial institutions must embrace technology that simplifies communication while enhancing customer engagement. <br>
+          <h2 class="title" style="color: #010047;">Real-World Example</h2>
+          <p class="mt-5">A customer in Ho Chi Minh City misses their EMI payment. Instead of waiting for a manual
+call, the Gen AI Voicebot automatically calls in Vietnamese, reminding them politely and
+offering a repayment option through MoMo. The customer clicks the link and makes the
+payment instantly. <br> At the same time, another customer in Hanoi uses the voicebot to check their loan balance at
+midnight—something impossible with traditional call centers.</p>
 
-          With <strong>Hybrify Connecta</strong> , Ikontel empowers Vietnamese banks and fintechs to unify their customer engagement strategy. From loan recovery to customer support, every interaction becomes smarter, faster, and more reliable. <br>
 
-          If your institution wants to <b> reduce defaults, improve customer trust, and scale
-communication efficiently</b>, Hybrify Connecta is the solution to lead you into the future of
-digital banking.
-
-          </p>
+<br>
+  <p>The bank gains clear insights into agent performance, improves compliance, and enhances
+customer satisfaction.</p>
          
         </div>
 
     </section>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="rs-project-details__content">
+              <div class="rs-project-content">
+                <h2 class="title">Shaping the Future of Banking in Vietnam</h2>
+                <div class="rs-list-box">
+                  
+                  <ul>
+                    <li>
+                      <i class="ri-share-forward-fill"></i> 
+                      The future of customer service is AI-driven, fast, and multilingual. With Ikontel’s Gen AI
+Voicebot, financial institutions in Vietnam can handle customer queries, reminders, and
+support requests seamlessly, while freeing human agents to focus on complex tasks. </li>
+                    <li>
+                      <i class="ri-share-forward-fill"></i> 
+                      For banks and fintechs that want to deliver world-class service, reduce costs, and stay
+ahead of competition, adopting a Gen AI Voicebot is no longer optional—it’s essential. </li>
+
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <img src="assets/images/banner/banner-thumb-1.png" alt="">
+          </div>
+        </div>
+    </div>
+
+       <!--======== Service Details Counter Start ========-->
+    <section class="rs-counter-2 rs-counter-3 mt-5 pb-125 loaded">
+      <div class="container">
+        <div class="row">
+        
+          <div class="col-lg-4 col-sm-6">
+            <div class="rs-counter-2__item item-3">
+              <div class="rs-counter-2__icon">
+                <img src="assets/images/counter/counter-3.png" alt="">
+              </div>
+              <div class="rs-counter-2__content">
+                <h4 class="title">
+                  <span class="rs-count odometer odometer-auto-theme" data-count="500"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span> +
+                </h4>
+                <span>Businesses Supported</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="rs-counter-2__item">
+              <div class="rs-counter-2__icon">
+                <img src="assets/images/counter/counter-1.png" alt="">
+              </div>
+              <div class="rs-counter-2__content">
+                <h4 class="title">
+                  <span class="rs-count odometer odometer-auto-theme" data-count="20"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">2</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span> +
+                </h4>
+                <span>Industries Impacted</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="rs-counter-2__item item-4">
+              <div class="rs-counter-2__icon">
+                <img src="assets/images/counter/counter-4.png" alt="">
+              </div>
+              <div class="rs-counter-2__content">
+                <h4 class="title">
+                  <span class="rs-count odometer odometer-auto-theme" data-count="650"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">6</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span> +
+                </h4>
+                <span>Team Members</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--======== Service Details Counter Ends ========-->
 
 
 
