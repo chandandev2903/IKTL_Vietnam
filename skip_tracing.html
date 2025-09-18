@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
- <head>
+<html class="no-js" lang="en">
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Ikontel</title>
@@ -65,319 +65,14 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
-   
-    <style>
-
-
-        .mycontainer {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 60px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .header h1 {
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.9);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-        }
-
-        .service-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            font-size: 24px;
-            color: white;
-        }
-
-        .toll-free-icon {
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-        }
-
-        .missed-call-icon {
-            background: linear-gradient(135deg, #43e97b, #38f9d7);
-        }
-
-        .service-title {
-            font-size: 1.8rem;
-            color: #333;
-            font-weight: 700;
-        }
-
-        .service-description {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.7;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-
-        .features-list li {
-            padding: 8px 0;
-            position: relative;
-            padding-left: 25px;
-            color: #555;
-        }
-
-        .features-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #4CAF50;
-            font-weight: bold;
-        }
-
-        .use-cases {
-            background: rgba(102, 126, 234, 0.05);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 60px 0;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
-        .use-cases h2 {
-            font-size: 2.2rem;
-            color: #333;
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .use-cases h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-
-        .use-cases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .use-case-item {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .use-case-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .use-case-item h3 {
-            color: #667eea;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .use-case-item p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        .features-benefits {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .features-benefits h2 {
-            font-size: 2.2rem;
-            color: #333;
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .features-benefits h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #43e97b, #38f9d7);
-            border-radius: 2px;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-
-        .benefit-item {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .benefit-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            font-size: 2rem;
-        }
-
-        .benefit-item h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .benefit-item p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .cta-section {
-            text-align: center;
-            margin-top: 60px;
-            padding: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            animation: fadeInUp 1s ease-out 0.9s both;
-        }
-
-        .cta-section h2 {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .cta-section p {
-            color: rgba(255,255,255,0.9);
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .service-card {
-                padding: 25px;
-            }
-            
-            .use-cases-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
   </head>
-<body>
 
-     <!--======== Inner Header start ========-->
-     <div class="full-width-header rs-header-layout-3">
+  <body class="service-details-2">
+    <!--======== Inner Header start ========-->
+    <div class="full-width-header rs-header-layout-3">
       <!--Header Start-->
       <header id="rs-header" class="rs-header">
-       
+        
         <!-- Menu Start -->
         <div class="menu-area menu-sticky">
           <!-- Offer Section End -->
@@ -617,19 +312,33 @@
       </div>
     </div>
 
-  
-    <!--======== Contact Page Banner Start ========-->
+    <!--======== Preloader area start ========-->
+    <div id="pre-load">
+      <div id="loader" class="loader">
+        <div class="loader-container">
+          <div class="loader-icon">
+            <img src="assets/images/favicon.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--======== Preloader area Ends ========-->
+
+    <!--======== Service Details Page Banner 2 Start ========-->
+    
     <section class="rs-page-banner">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="rs-page-banner__content">
-              <h1 class="title">Click-to-Call in Vietnam </h1>
+              <h1 class="title">Skip Tracing Solution – Smart Borrower
+Tracking for Vietnam
+ </h1>
               <ul>
                 <li><i class="ri-home-wifi-line"></i> <a href="index.html">Home</a></li>
-                 <li><i class="ri-arrow-right-fill"></i> <a href="#">Service</a></li>
+                <li><i class="ri-arrow-right-fill"></i> <a href="#">Service</a></li>
                 <li>
-                  <i class="ri-arrow-right-fill"></i>Click-to-Call 
+                  <i class="ri-arrow-right-fill"></i> Speech Recognition 
 
                 </li>
               </ul>
@@ -638,80 +347,81 @@
         </div>
       </div>
     </section>
-    <!--======== Contact Page Banner Ends ========-->
+    <!--======== Service Details Page Banner 2 Ends ========-->
 
-    <section class="rs-service-details-about pt-120 pb-145 loaded">
+    <!--======== Service Details 2 Start ========-->
+    <section class="rs-service-details-about pt-120 pb-145">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="rs-section-title black">
               <div class="top-sub-heading">
-                <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="">
-                <span>Click-to-Call in Vietnam </span>
+                <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="" />
+                <span> Speech Recognition Services in Vietnam </span>
               </div>
-              <h2 class="title split-in-fade" style="perspective: 400px;">
- Make Help One Tap Away
-</h2>
-         <p class="mb-20">
-          Add a <strong>Call Now</strong> button to your website or app to connect customers instantly to the right queue— <strong>collections/settlements, renewals, support, order/delivery, appointments</strong> —with <strong>SBV/MIC-aware</strong> routing and recording.
-         </p>
+              <h2 class="title split-in-fade">
+                Turning Calls into Compliance-Ready Insights
+              </h2>
+              <p class="mb-20">
+                very regulated conversation matters. <strong>Ikontel Speech Recognition</strong> converts Vietnamese/English calls into accurate transcripts, then surfaces insights for <strong>quality, compliance, and performance—ideal</strong> for <strong>collections</strong> , but equally valuable for <strong> support, renewals, and operations.</strong>
+              </p>
 
               <a href="contact.html" class="main-btn mt-40">
-                Contact Us <i class="ri-arrow-right-fill"></i></a>
+                Contact Us <i class="ri-arrow-right-fill"></i
+              ></a>
             </div>
           </div>
           <div class="col-lg-6">
             <div class="rs-thumb">
-              <img src="assets/images/faq/faq-left-img.png" alt="">
+              <img src="assets/images/faq/faq-left-img.png" alt="" />
               <div class="rs-shape">
-                <img src="assets/images/faq/couple-ball-layer.svg" alt="">
+                <img src="assets/images/faq/couple-ball-layer.svg" alt="" />
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <!--======== Service Details 2 Ends ========-->
 
-    <div class="mycontainer">
-     
+  
 
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-header">
-                    <div class="service-icon toll-free-icon">📞</div>
-                    <div class="service-title">Features</div>
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="rs-project-details__content">
+              <div class="rs-project-content">
+                <h2 class="title">What It Does</h2>
+                <div class="rs-list-box">
+                  <ul>
+                    <li>
+                      <i class="ri-share-forward-fill"></i> 
+                      <strong>Automatic transcription</strong> in real time or post-call.
+                    </li>
+                    <li>
+                      <i class="ri-share-forward-fill"></i> 
+                      <strong>Compliance assurance </strong> with searchable archives (SBV contexts) and <strong> MIC-aligned </strong> storage.
+                    </li>
+                    <li>
+                      <i class="ri-share-forward-fill"></i> 
+                      <strong> Analytics : </strong> recurring objections, sentiment/intent signals, script adherence.
+
+                    </li>
+
+    
+                  </ul>
                 </div>
-                <ul class="features-list">
-                    <li><strong>Easy integration</strong> with web/app.</li>
-                    <li><strong>Secure, encrypted</strong> calls; <strong>logged to CRM.</strong></li>
-                    <li><strong>Routing rules</strong> by segment, issue, or priority.</li>
-                    <li><strong> 24/7 availability </strong>options.</li>
-                  
-                    
-                </ul>
-            </div>
 
-            <div class="service-card">
-                <div class="service-header">
-                    <div class="service-icon missed-call-icon">📲</div>
-                    <div class="service-title">Benefits</div>
-                </div>
-                <ul class="features-list">
-                    <li><strong>Higher engagement </strong> (customers initiate contact).</li>
-                    <li> <strong>Faster resolution </strong> and <strong>agent efficiency.</strong> </li>
-                    <li><strong>Audit-ready</strong> with monitored/recorded calls.</li>
-                    
-                    <br><br>
-                   
-                </ul>
+              </div>
             </div>
+          </div>
+          <div class="col-lg-4">
+            <img src="assets/images/banner/banner-thumb-1.png" alt="">
+          </div>
         </div>
-
-
     </div>
 
-
-    <section class="rs-service-3 rs-service-grid-2  loaded mt-5">
+    <section class="rs-service-3 rs-service-grid-2 pt-90 pb-120 loaded">
 
         <div class="container">
           <h2 class="title" style="color: #010047;">Use Cases</h2>
@@ -721,10 +431,8 @@
                         <div class="icon">
                             <img src="assets/images/service/service_icon1.png" alt="">
                         </div>
-                        <h2 style="font-size: 20px;" class="text-white">Repayment/settlement</h2>
-                        
-                        <p>help from a payments page.</p>
-                        <br>
+                        <h3 class="title"><a href="service-details.html"><strong>Collections & Recovery</strong> </a></h3>
+                        <p>Dispute evidence, promise-to-pay verification, script adherence.</p>
                         
                         <div class="rs-number-box">
                             <span>01</span>
@@ -736,9 +444,8 @@
                         <div class="icon">
                             <img src="assets/images/service/service_icon2.png" alt="">
                         </div>
-                        <h2 style="font-size: 20px;" class="text-white">Renewal/upgrade</h2>
-                        <p>consults from plan/policy pages.<p> <br>
-                          
+                        <h3 class="title"><a href="service-details.html"><strong>Customer Support QA:</strong></a></h3>
+                        <p>Coaching, escalation review, first-call resolution improvement.</p>
                         <div class="rs-number-box">
                             <span>02</span>
                         </div>
@@ -749,17 +456,27 @@
                         <div class="icon">
                             <img src="assets/images/service/service_icon3.png" alt="">
                         </div>
-                        <h2 style="font-size: 20px;" class="text-white">Dispute handling</h2>
-                        <p>or priority callbacks.</p>
-                        <br>
-                        <br>
+                        <h3 class="title"><a href="service-details.html"><strong>Sales/Renewals:</strong></a></h3>
+                        <p>Objection libraries, playbook optimization.</p>
+                        <a href="service-details.html">Read More <i class="ri-arrow-right-fill"></i></a>
                         <div class="rs-number-box">
                             <span>03</span>
                         </div>
                     </div>
                 </div>
-             
-                <p class="mt-5 mb-5"></p>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="rs-service-3__item">
+                        <div class="icon">
+                            <img src="assets/images/service/service_icon1.png" alt="">
+                        </div>
+                        <h3 class="title"><a href="service-details.html"><strong>Operations & Risk</strong></a></h3>
+                        <p> Fraud cues, complaint trends, policy/process gaps.</p>
+ 
+                        <div class="rs-number-box">
+                            <span>04</span>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -768,13 +485,95 @@
         </div>
     </section>
 
+      <!--======== Service Details Features Start ========-->
+
+    <!--======== Service Details Features Ends ========-->
+
+    <section class="rs-service-details pb-120 loaded ">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="rs-service-details__content">
+
+              <div class="rs-content">
+                <h3 class="title mt-30">Features</h3>
+                <div class="rs-service-list-box">
+                  <div class="rs-thumb">
+                    <img src="assets/images/service/service-detail-small-img.jpg" alt="">
+                  </div>
+                  <div class="rs-list">
+                    <ul>
+                      <li>
+                        <i class="ri-share-forward-fill"></i>
+                        High accuracy for <strong> Vietnamese accents/dialects. </strong>
+                      </li>
+                      <li>
+                        <i class="ri-share-forward-fill"></i> 
+                        <strong>Dashboards </strong> for search, tags, and trends.
+                      </li>
+                      <li>
+                        <i class="ri-share-forward-fill"></i>
+                        <strong>Integrations </strong> with CRM/collections/ticketing tools.
+
+                      </li>
+                      <li>
+                        <i class="ri-share-forward-fill"></i> 
+                        <strong>Encrypted storage </strong> with role-based access.
+
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <h3 class="title pt-40 pb-15">Benefits</h3>
+                <div class="row">
+                  <div class="col-lg-6 mb-3">
+                    <div class="rs-service-benefit">
+                      <h4 class="title">01</h4>
+                      <p>
+                      <strong>Audit-readiness </strong> and risk reduction.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-3">
+                    <div class="rs-service-benefit">
+                      <h4 class="title">02</h4>
+                      <p>
+                       <strong> Agent productivity </strong> (no manual notes).
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-3">
+                    <div class="rs-service-benefit">
+                      <h4 class="title">03</h4>
+                      <p>
+                      <strong>Better outcomes </strong> from evidence-based coaching.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-3">
+                    <div class="rs-service-benefit">
+                      <h4 class="title">04</h4>
+                      <p>
+                       <strong> Faster dispute resolution </strong> across industries.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="rs-pricing-contact pt-90 pb-90">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="rs-pricing-contact__content">
-                        <h4 class="title">Enable Click-to-Call</h4>
-                        <p>Reduce friction and increase conversions/resolutions.</p>
+                        <h4 class="title">Start Automating</h4>
+                        <p>Turn conversations into measurable quality and compliant proof.</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -802,48 +601,42 @@
             </div>
         </div>
     </div>
-       <!--======== Service Details Counter Start ========-->
-    <section class="rs-counter-2 rs-counter-3 mt-5 pb-125 loaded">
+
+
+    <!--======== Service Details Counter Start ========-->
+    <section class="rs-service-details-counter  " style="margin-top: 100px;">
       <div class="container">
         <div class="row">
-        
-          <div class="col-lg-4 col-sm-6">
-            <div class="rs-counter-2__item item-3">
-              <div class="rs-counter-2__icon">
-                <img src="assets/images/counter/counter-3.png" alt="">
-              </div>
-              <div class="rs-counter-2__content">
-                <h4 class="title">
-                  <span class="rs-count odometer odometer-auto-theme" data-count="500"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span> +
-                </h4>
-                <span>Businesses Supported</span>
-              </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="rs-service-details-counter__item">
+              <h3 class="title">
+                <span class="odometer" data-count="100">00</span> <sub>k</sub>
+              </h3>
+              <span> Happy Clients</span>
             </div>
           </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="rs-counter-2__item">
-              <div class="rs-counter-2__icon">
-                <img src="assets/images/counter/counter-1.png" alt="">
-              </div>
-              <div class="rs-counter-2__content">
-                <h4 class="title">
-                  <span class="rs-count odometer odometer-auto-theme" data-count="20"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">2</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span> +
-                </h4>
-                <span>Industries Impacted</span>
-              </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="rs-service-details-counter__item">
+              <h3 class="title">
+                <span class="odometer" data-count="250">00</span> <sub>+</sub>
+              </h3>
+              <span>Projects Done</span>
             </div>
           </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="rs-counter-2__item item-4">
-              <div class="rs-counter-2__icon">
-                <img src="assets/images/counter/counter-4.png" alt="">
-              </div>
-              <div class="rs-counter-2__content">
-                <h4 class="title">
-                  <span class="rs-count odometer odometer-auto-theme" data-count="650"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">6</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span> +
-                </h4>
-                <span>Team Members</span>
-              </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="rs-service-details-counter__item">
+              <h3 class="title">
+                <span class="odometer" data-count="60">00</span> <sub>+</sub>
+              </h3>
+              <span>Expert People</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="rs-service-details-counter__item">
+              <h3 class="title">
+                <span class="odometer" data-count="250">00</span> <sub>+</sub>
+              </h3>
+              <span>Portfolios</span>
             </div>
           </div>
         </div>
@@ -858,7 +651,7 @@
           <div class="col-lg-12">
             <div class="rs-brand__top-title">
               <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="" />
-              <span>More than 500+ Brands with work Ikontel</span>
+              <span>More than 5K+ Brands with work Ikontel</span>
               <img src="assets/images/heart-pulse-rate-orange.svg" alt="" />
             </div>
           </div>
@@ -874,7 +667,7 @@
                 data-autoplay="true"
                 data-hoverpause="true"
                 data-autoplay-timeout="3000"
-                data-smart-speed="1200"
+                data-smart-speed="500"
                 data-dots="false"
                 data-nav="false"
                 data-nav-speed="false"
@@ -894,9 +687,9 @@
                 data-md-device-dots="false"
                 data-doteach="false"
               >
-                    <div class="rs-brand-slider-item">
+                <div class="rs-brand-slider-item">
                   <a href="#">
-                    <img src="https://www.ikontel.com/assets/img/integration/clienticons-03.png" alt="" />
+                    <img src="assets/images/brand/partner1.png" alt="" />
                     <img
                       class="item-2"
                       src="assets/images/brand/partner-white-1.png"
@@ -906,7 +699,7 @@
                 </div>
                 <div class="rs-brand-slider-item">
                   <a href="#">
-                    <img src="https://www.ikontel.com/assets/img/integration/clienticons-01.png" alt="" />
+                    <img src="assets/images/brand/partner2.png" alt="" />
                     <img
                       class="item-2"
                       src="assets/images/brand/partner-white-2.png"
@@ -916,7 +709,7 @@
                 </div>
                 <div class="rs-brand-slider-item">
                   <a href="#">
-                    <img src="https://www.ikontel.com/assets/img/integration/clienticons-12.png" alt="" />
+                    <img src="assets/images/brand/partner3.png" alt="" />
                     <img
                       class="item-2"
                       src="assets/images/brand/partner-white-3.png"
@@ -926,7 +719,7 @@
                 </div>
                 <div class="rs-brand-slider-item">
                   <a href="#">
-                    <img src="https://www.ikontel.com/assets/img/integration/clienticons-11.png" alt="" />
+                    <img src="assets/images/brand/partner4.png" alt="" />
                     <img
                       class="item-2"
                       src="assets/images/brand/partner-white-4.png"
@@ -936,7 +729,7 @@
                 </div>
                 <div class="rs-brand-slider-item">
                   <a href="#">
-                    <img src="https://www.ikontel.com/assets/img/integration/clienticons-05.png" alt="" />
+                    <img src="assets/images/brand/partner5.png" alt="" />
                     <img
                       class="item-2"
                       src="assets/images/brand/partner-white-5.png"
@@ -946,7 +739,7 @@
                 </div>
                 <div class="rs-brand-slider-item">
                   <a href="#">
-                    <img src="https://www.ikontel.com/assets/img/integration/clienticons-04.png" alt="" />
+                    <img src="assets/images/brand/partner6.png" alt="" />
                     <img
                       class="item-2"
                       src="assets/images/brand/partner-white-6.png"
@@ -956,7 +749,7 @@
                 </div>
                 <div class="rs-brand-slider-item">
                   <a href="#">
-                    <img src="https://www.ikontel.com/assets/img/integration/clienticons-02.png" alt="" />
+                    <img src="assets/images/brand/partner7.png" alt="" />
                     <img
                       class="item-2"
                       src="assets/images/brand/partner-white-7.png"
@@ -966,27 +759,7 @@
                 </div>
                 <div class="rs-brand-slider-item">
                   <a href="#">
-                    <img src="https://www.ikontel.com/assets/img/integration/clienticons-07.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-8.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="https://www.ikontel.com/assets/img/integration/clienticons-04.png" alt="" />
-                    <img
-                      class="item-2"
-                      src="assets/images/brand/partner-white-8.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div class="rs-brand-slider-item">
-                  <a href="#">
-                    <img src="https://www.ikontel.com/assets/img/integration/clienticons-06.png" alt="" />
+                    <img src="assets/images/brand/partner8.png" alt="" />
                     <img
                       class="item-2"
                       src="assets/images/brand/partner-white-8.png"
@@ -1002,17 +775,14 @@
     </div>
     <!--======== Service Details Brand Ends ========-->
 
-    <footer class="rs-footer rs-footer-2 rs-footer-3">
+    <!--======== Footer 2 Start ========-->
+     <footer class="rs-footer rs-footer-2 rs-footer-3">
       <div class="rs-footer__main-box">
         <div class="container">
           <div class="row">
             <div class="col-lg-3">
               <div class="rs-footer__about-box">
-                <a href="#"
-                  ><img
-                    src="https://www.ikontel.com/assets/img/logo/iKonTel-logo.png"
-                    alt=""
-                /></a>
+                <a href="#"><img src="https://www.ikontel.com/assets/img/logo/iKonTel-logo.png" alt=""></a>
                 <p>
                   iKonTel is a next generation high quality product development and software solution company with an endeavour to offer cost effective and high-end technology solutions focused on addressing customer's pain areas.
 
@@ -1042,29 +812,19 @@
                 </div>
                 <ul>
                   <li>
-                    <a href="hybrify_connecta.html"
-                      ><i class="ri-arrow-right-fill"></i> Hybrify Connecta</a
-                    >
+                    <a href="hybrify_connecta.html"><i class="ri-arrow-right-fill"></i> Hybrify Connecta</a>
                   </li>
                   <li>
-                    <a href="#"
-                      ><i class="ri-arrow-right-fill"></i> Voice Call Quality Check Using AI</a
-                    >
+                    <a href="#"><i class="ri-arrow-right-fill"></i> Voice Call Quality Check Using AI</a>
                   </li>
                   <li>
-                    <a href="collection-made-Life-easy.html"
-                      ><i class="ri-arrow-right-fill"></i> Collection Made Life Easy</a
-                    >
+                    <a href="collection-made-Life-easy.html"><i class="ri-arrow-right-fill"></i> Collection Made Life Easy</a>
                   </li>
                   <li>
-                    <a href="#"
-                      ><i class="ri-arrow-right-fill"></i> Gen AI Cloud Telephony</a
-                    >
+                    <a href="#"><i class="ri-arrow-right-fill"></i> Gen AI Cloud Telephony</a>
                   </li>
                   <li>
-                    <a href="#"
-                      ><i class="ri-arrow-right-fill"></i> Gen AI Voicebot</a
-                    >
+                    <a href="#"><i class="ri-arrow-right-fill"></i> Gen AI Voicebot</a>
                   </li>
                 </ul>
               </div>
@@ -1076,19 +836,13 @@
                 </div>
                 <ul>
                   <li>
-                    <a href="about.html"
-                      ><i class="ri-arrow-right-fill"></i> About Ikontel</a
-                    >
+                    <a href="about.html"><i class="ri-arrow-right-fill"></i> About Ikontel</a>
                   </li>
                   <li>
-                    <a href="contact.html"
-                      ><i class="ri-arrow-right-fill"></i> Contact Us</a
-                    >
+                    <a href="contact.html"><i class="ri-arrow-right-fill"></i> Contact Us</a>
                   </li>
                   <li>
-                    <a href="#"
-                      ><i class="ri-arrow-right-fill"></i> Blogs</a
-                    >
+                    <a href="#"><i class="ri-arrow-right-fill"></i> Blogs</a>
                   </li>
                 </ul>
               </div>
@@ -1099,23 +853,15 @@
                   <h4 class="title">Newsletter</h4>
                 </div>
                 <p>
-                  Register now to get latest updates on promotions & coupons.
+                  Register now to get latest updates on promotions &amp; coupons.
                 </p>
                 <form action="#">
                   <div class="input-box">
-                    <input type="email" placeholder="Your email address" />
+                    <input type="email" placeholder="Your email address">
                     <button class="main-btn-2">
                       Subscribe
-                      <svg
-                        width="13"
-                        height="14"
-                        viewBox="0 0 13 14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6.5 7.8125H0V6.1875H6.5V0.5L13 7L6.5 13.5V7.8125Z"
-                          fill="#fff"
-                        ></path>
+                      <svg width="13" height="14" viewBox="0 0 13 14" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.5 7.8125H0V6.1875H6.5V0.5L13 7L6.5 13.5V7.8125Z" fill="#fff"></path>
                       </svg>
                     </button>
                   </div>
@@ -1132,9 +878,7 @@
               <div class="rs-footer__copyright-text">
                <p>
                   © 2007
-                  <a target="_blank" href="https://www.ikontel.com/"
-                    >iKonTel solutions pvt ltd</a
-                  >
+                  <a target="_blank" href="https://www.ikontel.com/">iKonTel solutions pvt ltd</a>
                   .All rights reserved
                 </p>
               </div>
@@ -1241,114 +985,5 @@
 
     <!-- Activation JS -->
     <script src="./assets/js/main.js"></script>
-
-  
-
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Header background change on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(102, 126, 234, 0.95)';
-                header.style.backdropFilter = 'blur(20px)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-                header.style.backdropFilter = 'blur(10px)';
-            }
-        });
-
-        // Toggle comparison content
-        function showComparison(type) {
-            // Update buttons
-            document.querySelectorAll('.toggle-option').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // Update content
-            document.querySelectorAll('.toggle-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.getElementById(type + '-content').classList.add('active');
-        }
-
-        // Interactive stat cards
-        document.querySelectorAll('.stat-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px) scale(1.05)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Feature cards interaction
-        document.querySelectorAll('.feature-item').forEach(item => {
-            item.addEventListener('click', () => {
-                item.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
-                item.style.color = 'white';
-                
-                setTimeout(() => {
-                    item.style.background = 'white';
-                    item.style.color = '#333';
-                }, 1000);
-            });
-        });
-
-        // Typing effect for hero title
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            
-            function typing() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(typing, speed);
-                }
-            }
-            
-            typing();
-        }
-
-        // Initialize typing effect after page load
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const heroTitle = document.querySelector('.hero h1');
-                const originalText = heroTitle.textContent;
-                typeWriter(heroTitle, originalText, 80);
-            }, 1000);
-        });
-    </script>
-</body>
+  </body>
 </html>
