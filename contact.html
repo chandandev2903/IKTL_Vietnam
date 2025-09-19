@@ -65,7 +65,7 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
-         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
   </head>
 
   <body class="contact-page">
@@ -626,10 +626,9 @@
                   We'd love to hear from you
                 </p>
               </div>
-              <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+             <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
   <!-- ✅ Required for Web3Forms -->
   <input type="hidden" name="access_key" value="5c218c9c-3959-449b-8c7e-7f8ed7deae3c">
-  <input type="hidden" name="redirect" value="">
 
   <div class="row">
     <div class="col-lg-6">
@@ -674,6 +673,12 @@
     </div>
   </div>
 </form>
+
+<!-- ✅ SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
 
               <p id="form-messages" class="form-message"></p>
             </div>
@@ -874,7 +879,7 @@
     <!-- JS Vendor, Plugins & Activation Script Files -->
 
     <!-- jquery Plugins JS -->
-
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
      <script>
 document.getElementById("contact-form").addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -885,32 +890,35 @@ document.getElementById("contact-form").addEventListener("submit", async functio
     try {
         const response = await fetch(form.action, {
             method: form.method,
-            body: formData
+            body: formData,
+            headers: {
+                "Accept": "application/json"  // ✅ important for Web3Forms
+            }
         });
 
         const result = await response.json();
 
         if (result.success) {
             Swal.fire({
-                icon: 'success',
-                title: 'Message Sent!',
-                text: 'Thank you for contacting us. We will get back to you soon.',
+                icon: "success",
+                title: "Message Sent!",
+                text: "Thank you for contacting us. We will get back to you soon.",
                 showConfirmButton: false,
                 timer: 3000
             });
             form.reset();
         } else {
             Swal.fire({
-                icon: 'error',
-                title: 'Oops!',
-                text: result.message || 'Something went wrong. Please try again.',
+                icon: "error",
+                title: "Oops!",
+                text: result.message || "Something went wrong. Please try again.",
             });
         }
     } catch (error) {
         Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Unable to send message. Please check your connection.',
+            icon: "error",
+            title: "Error",
+            text: error.message || "Unable to send message. Please check your connection.",
         });
     }
 });
