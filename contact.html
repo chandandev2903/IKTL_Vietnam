@@ -65,6 +65,7 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
+         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
 
   <body class="contact-page">
@@ -625,66 +626,55 @@
                   We'd love to hear from you
                 </p>
               </div>
-              <form
-                id="contact-form"
-                action="assets/php/contact.php"
-                method="post"
-              >
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="input-box">
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Your Name"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="input-box">
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Your Email"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="input-box">
-                      <input
-                        type="text"
-                        id="topic"
-                        name="topic"
-                        placeholder="Your Topic"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="input-box">
-                      <input
-                        type="text"
-                        id="phone"
-                        name="phone"
-                        placeholder="Your Phone"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="input-box">
-                      <textarea
-                        name="message"
-                        id="message"
-                        placeholder="Message..."
-                      ></textarea>
-                      <button type="submit" class="main-btn">
-                        Send Message <i class="ri-arrow-right-fill"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
+              <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+  <!-- ✅ Required for Web3Forms -->
+  <input type="hidden" name="access_key" value="5c218c9c-3959-449b-8c7e-7f8ed7deae3c">
+  <input type="hidden" name="redirect" value="">
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-box">
+        <input type="text" id="name" name="name" placeholder="Your Name" required />
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="input-box">
+        <input type="email" id="email" name="email" placeholder="Your Email" required />
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="input-box">
+        <select name="services" class="form-select" required>
+          <option value="">Select Services</option>
+          <option value="Hybrify Connecta">Hybrify Connecta</option>
+          <option value="Collection Made Life Easy">Collection Made Life Easy</option>
+          <option value="Gen AI Voice Bot">Gen AI Voice Bot</option>
+          <option value="Tracing solution">Tracing solution</option>
+          <option value="Voice Call Quality Check Using AI">Voice Call Quality Check Using AI</option>
+          <option value="Gen AI Cloud Telephony">Gen AI Cloud Telephony</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="input-box">
+        <input type="text" id="phone" name="phone" placeholder="Your Phone" required />
+      </div>
+    </div>
+
+    <div class="col-lg-12">
+      <div class="input-box">
+        <textarea name="message" id="message" placeholder="Message..." required></textarea>
+        <button type="submit" class="main-btn">
+          Send Message <i class="ri-arrow-right-fill"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
               <p id="form-messages" class="form-message"></p>
             </div>
           </div>
@@ -884,6 +874,48 @@
     <!-- JS Vendor, Plugins & Activation Script Files -->
 
     <!-- jquery Plugins JS -->
+
+     <script>
+document.getElementById("contact-form").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Message Sent!',
+                text: 'Thank you for contacting us. We will get back to you soon.',
+                showConfirmButton: false,
+                timer: 3000
+            });
+            form.reset();
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops!',
+                text: result.message || 'Something went wrong. Please try again.',
+            });
+        }
+    } catch (error) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Unable to send message. Please check your connection.',
+        });
+    }
+});
+</script>
+
      <script src="Components/header.js"></script>
     <script src="./assets/js/jquery.min.js"></script>
 
