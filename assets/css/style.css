@@ -75,7 +75,9 @@ body {
 }
 
 /* footer */
-rs-footer__newsletter
+.rs-footer__newsletter a:hover{
+  color:#dc3545 !important;
+}
 
 h1,
 h2,
