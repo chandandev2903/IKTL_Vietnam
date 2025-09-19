@@ -65,6 +65,424 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
+     <style>
+        /* Global Reset */
+        .reset-all * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+
+        .container1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+
+
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideInUp 1s ease forwards 0.5s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideInUp 1s ease forwards 0.7s;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: slideInUp 1s ease forwards 0.9s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Solutions Section */
+        .solutions {
+            margin-top: -80px;
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .solution-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .solution-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .solution-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+        }
+
+        .comparison-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .comparison-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .comparison-side {
+            padding: 2rem;
+        }
+
+        .comparison-side:first-child {
+            border-right: 1px solid #eee;
+            background: #f8f9fa;
+        }
+
+        .comparison-side h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .comparison-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+
+        /* Interactive Toggle */
+        .toggle-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .toggle-container1 {
+            display: inline-flex;
+            background: #f0f0f0;
+            border-radius: 50px;
+            padding: 5px;
+            margin-bottom: 2rem;
+        }
+
+        .toggle-option {
+            padding: 10px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .toggle-option.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .toggle-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .toggle-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+       
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #4ecdc4;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .comparison-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-side:first-child {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
   </head>
 
   <body class="service-details-2">
@@ -94,7 +512,7 @@
                 <div class="main-menu hidden-md">
                   <ul class="nav-menu">
                     <li>
-                      <a href="index.html" class="active"> Home </a>
+                      <a href="index.html" > Home </a>
                     </li>
                     <li>
                       <a href="about.html">About</a>
@@ -409,113 +827,103 @@
     </section>
     <!--======== Service Details 2 Ends ========-->
 
-  
-
-    <div class="container">
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="rs-project-details__content">
-              <div class="rs-project-content">
-                <h2 class="title">Long Code (Two-Way)</h2>
-                <div class="rs-list-box">
-                  <ul>
-                    <li>
-                      <i class="ri-share-forward-fill"></i> 
-                      Personal reminders (past-due, renewal, appointment).
-                    </li>
-                    <li>
-                      <i class="ri-share-forward-fill"></i> 
-                      Customer replies: <strong>“PAID,” “CALL ME,” “RESCHEDULE,” “CONFIRM.”</strong>
-
-                    </li>
-                    <li>
-                      <i class="ri-share-forward-fill"></i> 
-                      Great for <strong>collections and white-glove CX.</strong>
-
-                    </li>
-
-    
-                  </ul>
+  <section class="solutions loaded" id="solutions">
+        <div class="container1">
+<h2 class="section-title fade-in mt-5 visible">Long Code (Two-Way)
+</h2>
+            <div class="solutions-grid">
+                <div class="solution-card fade-in visible">
+                    <div class="solution-icon">🔔</div>
+                    <!-- <h3>Interaction Type</h3> -->
+                    <p> <strong>Personal reminders <br> (past-due, renewal, appointment)</strong></p>
+                </div>
+                <div class="solution-card fade-in visible">
+                    <div class="solution-icon">💬</div>
+                    <p> <strong>Customer replies: “PAID,” “CALL ME,” “RESCHEDULE,” “CONFIRM.”</strong></p>
+                </div>
+                <div class="solution-card fade-in visible">
+                    <div class="solution-icon">🎯</div>
+                    <p> <strong>Great for collections and white-glove CX.</strong></p>
                 </div>
 
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <img style="border-radius: 10px;" src="assets/images/site_img/sms/long_code.png" alt="">
-          </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="rs-project-details__content">
-              <div class="rs-project-content">
-                <h2 class="title">Why SMS</h2>
-                <div class="rs-list-box">
-                  <ul>
-                    <li>
-                      <i class="ri-share-forward-fill"></i> 
-                      <strong>Very high read rates</strong> within minutes.
-                    </li>
-                    <li>
-                      <i class="ri-share-forward-fill"></i> 
-                      <strong>Audit-friendly records</strong>  easy to archive.
-
-                    </li>
-                    <li>
-                      <i class="ri-share-forward-fill"></i> 
-                      Works <strong>without internet</strong> ideal nationwide.
-
-                    </li>
-
-    
-                  </ul>
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 mt-3">
-            <img src="assets/images/site_img/sms/why_sms.png" alt="" style="border-radius: 10px;">
-          </div>
-        </div>
-    </div>
-
-    <section class="rs-project-details pb-120 loaded">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="rs-project-details__content mt-30 ">
-                        <div class="rs-project-content">
-                            <h2 class="title">Bulk SMS (High-Volume)</h2>
-                            <div class="rs-project-sourc">
-                                <div class="rs-project-play">
-                                    <img src="assets/images/site_img/sms/bulk_sms.png" alt="">
-                                    
-                                </div>
-                                <div class="rs-project-sourc-box">
-                                    <div class="rs-thumb">
-                                        <img src="assets/images/site_img/sms/bulk_sms_2.png" alt="">
-                                    </div>
-                                    <div class="rs-project-list">
-                                        <ul>
-                                            <li><i class="ri-checkbox-circle-line"></i> Mass reminders (payment/renewal/maintenance).</li>
-                                            <li><i class="ri-checkbox-circle-line"></i> <strong>OTP</strong> for secure confirmations.</li>
-                                            <li><i class="ri-checkbox-circle-line"></i> <strong>Policy/terms updates</strong> and critical notices.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <section class="rs-service-3 rs-service-grid-2 pt-90 pb-120 loaded">
+    <section class="features loaded" id="features">
+        <div class="container1">
+            <h2 class="section-title fade-in visible">Why SMS
+
+</h2>
+
+            <div class="features-grid">
+                <div class="feature-item fade-in visible">
+                    <div class="feature-icon">📖</div>
+                    <p> Very high read rates within minutes.</p>
+                </div>
+                <div class="feature-item fade-in visible">
+                    <div class="feature-icon">📋</div>
+                    <p> Audit-friendly records easy to archive.</p>
+                </div>
+                <div class="feature-item fade-in visible">
+                    <div class="feature-icon">📶</div>
+                    <p> Works without internet ideal nationwide.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+  
+  <section class="rs-service-details pb-120 loaded">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="rs-service-details__content">
+
+              <div class="rs-content">
+                <h3 class="title pt-40 pb-15 mb-5">Bulk SMS (High-Volume)
+</h3>
+                <div class="row">
+                  <div class="col-lg-4 mb-3">
+                    <div class="rs-service-benefit">
+                      <h4 class="title">01</h4>
+                      <p>
+                       Mass reminders (payment/renewal/maintenance).
+
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 mb-3">
+                    <div class="rs-service-benefit">
+                      <h4 class="title">02</h4>
+                      <p>
+                        OTP for secure confirmations.
+
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 mb-3">
+                    <div class="rs-service-benefit">
+                      <h4 class="title">03</h4>
+                      <p>
+                       Policy/terms updates and critical notices.
+
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="rs-service-3 rs-service-grid-2  pb-120 loaded">
 
         <div class="container">
           <h2 class="title" style="color: #010047;">Use Cases</h2>
@@ -983,22 +1391,24 @@
             <div class="col-lg-3">
               <div class="rs-footer__newsletter">
                 <div class="rs-footer-title">
-                  <h4 class="title">Newsletter</h4>
+                  <h4 class="title">Contacts</h4>
                 </div>
-                <p>
-                  Register now to get latest updates on promotions &amp; coupons.
-                </p>
-                <form action="#">
-                  <div class="input-box">
-                    <input type="email" placeholder="Your email address">
-                    <button class="main-btn-2">
-                      Subscribe
-                      <svg width="13" height="14" viewBox="0 0 13 14" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.5 7.8125H0V6.1875H6.5V0.5L13 7L6.5 13.5V7.8125Z" fill="#fff"></path>
-                      </svg>
-                    </button>
-                  </div>
-                </form>
+                <a class="text-white mb-3">
+                  <i class="fa fa-map-marker mr-5" aria-hidden="true"></i>
+
+                   10th Floor, Room V1002 -Citilight Tower- No 45 Vo Thi Sau st, Tan Dinh Ward, Ho Chi Minh City
+                </a>
+                
+                  <a class="text-white mb-3" href="mailto:info@ikontel.com">
+                    <i class="fa fa-envelope mr-5" aria-hidden="true"></i>
+
+                    info@ikontel.com</a> <br>
+                
+                
+                  <a class="text-white mb-3" href="tel:+918867858986">
+                    <i class="fa fa-phone mr-5" aria-hidden="true"></i>
+
+                    +918867858986</a>
               </div>
             </div>
           </div>

@@ -133,7 +133,7 @@
             let ratio = 0.99;
             let active = false;
             gsap.set(cursorBall, { xPercent: -50, yPercent: -50, borderWidth: "1px", width: "40px", height: "40px" });
-            document.addEventListener("mousemove", mouseMove);
+            // document.addEventListener("mousemove", mouseMove);
             function mouseMove(e) {
                 var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 mouse.x = e.pageX;
