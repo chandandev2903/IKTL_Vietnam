@@ -560,8 +560,9 @@
                 </p>
               </div>
               <form id="contact-form"  method="post">
-                 <input type="hidden" name="access_key" value="5c218c9c-3959-449b-8c7e-7f8ed7deae3c">
-                        <input type="hidden" name="subject" value="New Submission from Web3Forms">
+          <input type="hidden" name="access_key" value="a6dd3425-2f16-4d0d-ac40-942298b6df84">
+             <input type="hidden" name="subject" value="New Submission from Vietnam Website">
+
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="input-box">
@@ -582,7 +583,7 @@
                         <option class="inputText" value="">Select Services</option>
                         <option class="inputText" value="Hybrify Connecta">Hybrify Connecta</option>
                         <option class="inputText" value="Collection Made  Life Easy">Collection Made Life Easy</option>
-                        <option class="inputText" value="Ikontify Portal">Ikontify Portal</option>
+                      
                         <option class="inputText" value="Gen AI Voice Bot">Gen AI Voice Bot</option>
                         <option class="inputText" value="Tracing solution">Tracing solution</option>
                         <option class="inputText" value="Voice Call Quality Check Using AI">Voice Call Quality Check
@@ -611,7 +612,7 @@
                   </div>
                 </div>
               </form>
-              <p id="form-messages" class="form-message"></p>
+              
             </div>
           </div>
         </div>
@@ -783,6 +784,49 @@
     <!-- JS Vendor, Plugins & Activation Script Files -->
 
     <!-- jquery Plugins JS -->
+    <script>
+const form = document.getElementById("contact-form");
+
+form.addEventListener("submit", function(e) {
+   e.preventDefault(); // prevent default form submission
+
+   const formData = new FormData(form);
+
+   fetch("https://api.web3forms.com/submit", {
+         method: "POST",
+         body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+         if (data.success) {
+            Swal.fire({
+               title: "Message Sent!",
+               text: "Thank you for contacting us. We’ll get back to you soon.",
+               icon: "success",
+               confirmButtonText: "OK"
+            });
+            form.reset();
+         } else {
+            Swal.fire({
+               title: "Oops!",
+               text: "Something went wrong. Please try again later.",
+               icon: "error",
+               confirmButtonText: "OK"
+            });
+         }
+      })
+      .catch(error => {
+         Swal.fire({
+            title: "Error!",
+            text: "Unable to submit the form. Please check your internet connection.",
+            icon: "error",
+            confirmButtonText: "OK"
+         });
+      });
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="Components/header.js"></script>
     <script src="./assets/js/jquery.min.js"></script>
 
