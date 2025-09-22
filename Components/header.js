@@ -11,7 +11,7 @@ function renderHeader() {
                         <div class="col-lg-7">
                             <div class="topbar-left-content">
                                 <p>
-                                    <i class="ri-hand-heart-fill"></i> Welcome to Ikontel Vietnam
+                                    <i class="ri-hand-heart-fill"></i> Welcome to iKonTelVietnam
                                     <a href="contact.html">Contact <i class="ri-arrow-right-up-line"></i></a>
                                 </p>
                             </div>

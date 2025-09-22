@@ -2,7 +2,7 @@
  *
  * -----------------------------------------------------------------------------
  *
- * Template : Ikontel - IT Solutions & Technology HTML Template
+ * Template : iKonTel- IT Solutions & Technology HTML Template
  * Author : rs-theme
  * Author URI : http://www.rstheme.com/
  *
