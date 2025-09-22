@@ -1306,47 +1306,59 @@ are not just imported but custom-built for Vietnam’s regulatory and cultural l
               <h2 class="title split-in-fade">Get in touch</h2>
             </div>
             <div class="rs-form-box">
-              <form
-                id="contact-form"
-                action="assets/php/contact.php"
-                method="post"
-              >
+              <form id="contact-form"  method="post">
+          <input type="hidden" name="access_key" value="a6dd3425-2f16-4d0d-ac40-942298b6df84">
+             <input type="hidden" name="subject" value="New Submission from Vietnam Website">
+
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="input-box">
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Your Name"
-                      />
+                      <input type="text" id="name" name="name" placeholder="Your Name" />
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="input-box">
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Your Email"
-                      />
+                      <input type="email" id="email" name="email" placeholder="Your Email" />
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="input-box">
+                      <!-- Replace with your Access Key -->
+                     
+
+                      <select class="form-select" name="services" class="inputText" class="form-select" required>
+                        <option class="inputText" value="">Select Services</option>
+                        <option class="inputText" value="Hybrify Connecta">Hybrify Connecta</option>
+                        <option class="inputText" value="Collection Made  Life Easy">Collection Made Life Easy</option>
+                      
+                        <option class="inputText" value="Gen AI Voice Bot">Gen AI Voice Bot</option>
+                        <option class="inputText" value="Tracing solution">Tracing solution</option>
+                        <option class="inputText" value="Voice Call Quality Check Using AI">Voice Call Quality Check
+                          Using AI</option>
+                        <option class="inputText" value="Gen AI Cloud Telephony">Gen AI Cloud Telephony</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="input-box">
+                      <input type="text" id="phone" name="phone" placeholder="Your Phone" />
                     </div>
                   </div>
                   <div class="col-lg-12">
                     <div class="input-box">
-                      <textarea
-                        name="message"
-                        id="message"
-                        placeholder="Message..."
-                      ></textarea>
-                      <button type="submit" class="main-btn-2">
+                      <textarea name="message" id="message" placeholder="Message..."></textarea>
+                      <!-- Honeypot Spam Protection -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+    <!-- Custom Confirmation / Success Page -->
+    <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
+                      <button type="submit" class="main-btn">
                         Send Message <i class="ri-arrow-right-fill"></i>
                       </button>
                     </div>
                   </div>
                 </div>
               </form>
-              <p id="form-messages" class="form-message"></p>
             </div>
           </div>
           <div class="col-lg-6">
@@ -1362,7 +1374,7 @@ are not just imported but custom-built for Vietnam’s regulatory and cultural l
                 <img src="assets/images/contact/email-1.png" alt="" />
                 <span>Email:</span>
                 <h4 class="title">
-                  <a href="mailto:info@ikontel.com">info@ikontel.com</a>
+                  <a href="mailto:sales@ikontel.com">sales@ikontel.com</a>
                 </h4>
               </div>
               <div class="rs-contact-info">
@@ -1568,7 +1580,49 @@ are not just imported but custom-built for Vietnam’s regulatory and cultural l
     <!-- JS Vendor, Plugins & Activation Script Files -->
 
     <!-- jquery Plugins JS -->
-    <script src="./assets/js/jquery.min.js"></script>
+       <script>
+const form = document.getElementById("contact-form");
+
+form.addEventListener("submit", function(e) {
+   e.preventDefault(); // prevent default form submission
+
+   const formData = new FormData(form);
+
+   fetch("https://api.web3forms.com/submit", {
+         method: "POST",
+         body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+         if (data.success) {
+            Swal.fire({
+               title: "Message Sent!",
+               text: "Thank you for contacting us. We’ll get back to you soon.",
+               icon: "success",
+               confirmButtonText: "OK"
+            });
+            form.reset();
+         } else {
+            Swal.fire({
+               title: "Oops!",
+               text: "Something went wrong. Please try again later.",
+               icon: "error",
+               confirmButtonText: "OK"
+            });
+         }
+      })
+      .catch(error => {
+         Swal.fire({
+            title: "Error!",
+            text: "Unable to submit the form. Please check your internet connection.",
+            icon: "error",
+            confirmButtonText: "OK"
+         });
+      });
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./assets/js/jquery.min.js"></script>
 
     <!-- jquery UI JS -->
     <script src="./assets/js/jquery-ui.min.js"></script>
