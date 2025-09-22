@@ -65,6 +65,126 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- <style>
+      .custom-slider {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+.slide {
+  display: none;
+}
+.slide.active {
+  display: block;
+}
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 50%;
+}
+button.prev { left: -60px; }
+button.next { right: -50px; }
+.counter {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.slide h3{
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ff6600;
+}
+    </style> -->
+    <style>
+.custom-slider {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  padding: 15px;
+}
+.slide {
+  display: none;
+}
+.slide.active {
+  display: block;
+}
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /* background: #ff6600; */
+  color: #000000;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 50%;
+}
+button.prev { left: -60px; }
+button.next { right: -50px; }
+.counter {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.slide h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ff6600;
+}
+.slide p {
+  text-align: justify;
+  line-height: 1.6;
+}
+
+/* ✅ Responsive adjustments */
+@media (max-width: 768px) {
+  .custom-slider {
+    max-width: 100%;
+    padding: 10px;
+  }
+  .slide h3 {
+    font-size: 20px;
+  }
+  .slide p {
+    font-size: 14px;
+  }
+  button.prev, button.next {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  button.prev { left: 5px; }
+  button.next { right: 5px; }
+}
+
+@media (max-width: 480px) {
+  .slide h3 {
+    font-size: 18px;
+  }
+  .slide p {
+    font-size: 13px;
+  }
+  .counter {
+    font-size: 14px;
+  }
+  button.prev, button.next {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  button.prev { left: 0; }
+  button.next { right: 0; }
+}
+</style>
+
   </head>
 
   <body class="about-page">
@@ -634,7 +754,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="rs-about-2__thumb">
-              <img src="assets/images/site_img/About/about02.png" alt="" />
+              <img style="max-width: 90% !important;" src="assets/images/site_img/About/about02.png" alt="" />
               <div class="rs-shape">
                 <img
                   class="gsap-move left-100 start-91"
@@ -650,154 +770,70 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="rs-about-2__main-content">
-              <div class="rs-section-title black">
-                <p>
-                  Bring to the table win-win survival strategies to ensure
-                  proactive domination at the end of the day, going forward.
-                </p>
-                <div
-                  id="rs-tabs"
-                  class="skltbs-theme-light use-drop skltbs-mode-tabs skltbs-init"
-                >
-                  <!-- tabGroup -->
-                  <ul class="skltbs-tab-group" role="tablist">
-                    <!-- tabItem -->
-                    <li class="skltbs-tab-item" role="presentation">
-                      <!-- tab -->
-                      <button
-                        class="skltbs-tab"
-                        id="skeletabsTab1"
-                        aria-selected="false"
-                        role="tab"
-                        tabindex="-1"
-                        aria-controls="skeletabsPanel1"
-                      >
-                        Our Impact
-                      </button>
-                    </li>
-                    <li
-                      class="skltbs-tab-item skltbs-active"
-                      role="presentation"
-                    >
-                      <button
-                        class="skltbs-tab"
-                        id="skeletabsTab2"
-                        aria-selected="true"
-                        role="tab"
-                        tabindex="0"
-                        aria-controls="skeletabsPanel2"
-                      >
-                        Our Vision & Mission
-                      </button>
-                    </li>
-                    <li class="skltbs-tab-item" role="presentation">
-                      <button
-                        class="skltbs-tab"
-                        id="skeletabsTab3"
-                        aria-selected="false"
-                        role="tab"
-                        tabindex="-1"
-                        aria-controls="skeletabsPanel3"
-                      >
-                        Our Expansion to Vietnam
-                      </button>
-                    </li>
-                  </ul>
-                  <!-- panelGroup -->
-                  <div class="skltbs-panel-group">
-                    <!-- panel -->
-                    <div
-                      class="skltbs-panel skltbs-leave-done"
-                      id="skeletabsPanel1"
-                      role="tabpanel"
-                      tabindex="0"
-                      aria-labelledby="skeletabsTab1"
-                      style="display: none"
-                    >
-                      <p>
-                        Since our inception, Ikontel has delivered
-                        <b>real-time automation</b> solutions that help
-                        businesses save costs, improve operational efficiency,
-                        and provide a superior customer experience. In India,
-                        Ikontel processes <b>over 1 million calls per day</b>,
-                        and our services have helped businesses reduce
-                        <b>costs by up to 90%</b> and improve
-                        <b>manpower efficiency by 70%.</b>
-                      </p>
-                      <p>
-                        One of our notable contributions was during the
-                        <b>COVID-19 pandemic</b>, when we supported the
-                        <b>Government of India</b> in managing and coordinating
-                        <b>public health communications</b>, reaching millions
-                        of people daily.
-                      </p>
-                    </div>
-                    <div
-                      class="skltbs-panel skltbs-active skltbs-enter-done"
-                      id="skeletabsPanel2"
-                      role="tabpanel"
-                      tabindex="0"
-                      aria-labelledby="skeletabsTab2"
-                      style="display: block"
-                    >
-                      <p>
-                        <b>Vision:</b> To be the <b>global leader</b> in
-                        AI-powered communication and debt recovery solutions,
-                        driving the <b>digital transformation</b> of customer
-                        engagement and operational automation across industries.
-                      </p>
-                      <p>
-                        <b>Mission:</b> To deliver
-                        <b
-                          >reliable, scalable, and cost-efficient AI-powered
-                          solutions</b
-                        >
-                        that help businesses in Vietnam and beyond automate
-                        their operations, reduce costs, and improve customer
-                        satisfaction.
-                      </p>
-                      <p>
-                        Ikontel is committed to ensuring that businesses are
-                        equipped with the most advanced technology to navigate
-                        the digital landscape, build customer loyalty, and drive
-                        growth.
-                      </p>
-                    </div>
-                    <div
-                      class="skltbs-panel"
-                      id="skeletabsPanel3"
-                      role="tabpanel"
-                      tabindex="0"
-                      aria-labelledby="skeletabsTab3"
-                      style="display: none"
-                    >
-                      <p>
-                        The launch of <b>Ikontel Vietnam</b> marks a new chapter
-                        in our global journey. With
-                        <b>Vietnam’s booming fintech and banking sector,</b> we
-                        see a massive opportunity to help businesses transition
-                        to digital debt recovery solutions. Our goal is to
-                        empower <b>Vietnamese financial institutions</b> with
-                        the tools they need to recover loans more effectively,
-                        engage borrowers across multiple touchpoints, and
-                        <b>automate their operations</b> to save time and costs.
-                      </p>
-                      <p>
-                        Our team in Vietnam works directly with local banks,
-                        fintechs, and telecom providers to ensure that our
-                        solutions are not only <b>cutting-edge</b> but also
-                        <b>tailored</b> to the unique needs and challenges of
-                        the Vietnamese market. By providing
-                        <b>Vietnamese language support,</b> we are able to offer
-                        a more <b>personalized experience</b> for borrowers,
-                        ensuring higher engagement and better results.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class="custom-slider">
+  <!-- Slide 1: Our Impact -->
+  <div class="slide active">
+    <h3>Our Impact</h3>
+    <p>
+      Since our inception, Ikontel has delivered <b>real-time automation</b> solutions that 
+      help businesses save costs, improve operational efficiency, and provide a superior 
+      customer experience. In India, Ikontel processes <b>over 1 million calls per day</b>, 
+      and our services have helped businesses reduce <b>costs by up to 90%</b> and improve 
+      <b>manpower efficiency by 70%.</b>
+    </p> <br>
+    <p>
+      One of our notable contributions was during the <b>COVID-19 pandemic</b>, when we 
+      supported the <b>Government of India</b> in managing and coordinating 
+      <b>public health communications</b>, reaching millions of people daily.
+    </p>
+  </div>
+
+  <!-- Slide 2: Our Vision & Mission -->
+  <div class="slide">
+    <h3>Our Vision & Mission</h3>
+    <p>
+      <b>Vision:</b> To be the <b>global leader</b> in AI-powered communication and debt 
+      recovery solutions, driving the <b>digital transformation</b> of customer engagement 
+      and operational automation across industries.
+    </p><br>
+    <p>
+      <b>Mission:</b> To deliver <b>reliable, scalable, and cost-efficient AI-powered 
+      solutions</b> that help businesses in Vietnam and beyond automate their operations, 
+      reduce costs, and improve customer satisfaction.
+    </p> <br>
+    <p>
+      Ikontel is committed to ensuring that businesses are equipped with the most advanced 
+      technology to navigate the digital landscape, build customer loyalty, and drive growth.
+    </p>
+  </div>
+
+  <!-- Slide 3: Our Expansion to Vietnam -->
+  <div class="slide">
+    <h3>Our Expansion to Vietnam</h3>
+    <p>
+      The launch of <b>Ikontel Vietnam</b> marks a new chapter in our global journey. 
+      With <b>Vietnam’s booming fintech and banking sector,</b> we see a massive opportunity 
+      to help businesses transition to digital debt recovery solutions. Our goal is to empower 
+      <b>Vietnamese financial institutions</b> with the tools they need to recover loans 
+      more effectively, engage borrowers across multiple touchpoints, and 
+      <b>automate their operations</b> to save time and costs.
+    </p> <br>
+    <p>
+      Our team in Vietnam works directly with local banks, fintechs, and telecom providers 
+      to ensure that our solutions are not only <b>cutting-edge</b> but also <b>tailored</b> 
+      to the unique needs and challenges of the Vietnamese market. By providing 
+      <b>Vietnamese language support,</b> we are able to offer a more 
+      <b>personalized experience</b> for borrowers, ensuring higher engagement and better results.
+    </p>
+  </div>
+
+  <!-- Navigation -->
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+
+  <!-- Counter -->
+  <div class="counter"><span id="current">1</span>/<span id="total">3</span></div>
+</div>
           </div>
         </div>
       </div>
@@ -1213,7 +1249,35 @@
     <!-- JS Vendor, Plugins & Activation Script Files -->
 
     <!-- jquery Plugins JS -->
-     
+     <script>
+const slides = document.querySelectorAll(".slide");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+const current = document.getElementById("current");
+const total = document.getElementById("total");
+
+let index = 0;
+total.textContent = slides.length;
+
+function showSlide(i) {
+  slides.forEach((slide, idx) => {
+    slide.classList.toggle("active", idx === i);
+  });
+  current.textContent = i + 1;
+}
+
+prevBtn.addEventListener("click", () => {
+  index = (index - 1 + slides.length) % slides.length;
+  showSlide(index);
+});
+
+nextBtn.addEventListener("click", () => {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+});
+
+showSlide(index);
+</script>
     <script src="./assets/js/jquery.min.js"></script>
 
     <!-- jquery UI JS -->
