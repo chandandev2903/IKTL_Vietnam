@@ -64,7 +64,7 @@ function renderHeader() {
                             <div class="rs-header-contct">
                                 <a href="tel:+85526691234">
                                     <p style="color: black;">
-                                        <img src="assets/images/phone.png" alt="" /><span>Call any time</span> 855 2669 1234
+                                        <img src="assets/images/phone.png" alt="" /><span>Call any time</span> +84587121204
                                     </p>
                                 </a>
                             </div>
